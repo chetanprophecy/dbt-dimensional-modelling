@@ -1,0 +1,81 @@
+{
+  "id" : "dim_order_status",
+  "metainfo" : {
+    "label" : "dim_order_status",
+    "autoLayout" : true,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "userDefinedConfig" : {
+        "vars" : { }
+      }
+    }
+  },
+  "processes" : {
+    "stg_order_status##bb1TcZ0M" : {
+      "id" : "stg_order_status##bb1TcZ0M",
+      "component" : "SQLStatement",
+      "metadata" : {
+        "label" : "stg_order_status",
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "fileTabs" : [ {
+          "path" : "",
+          "id" : "",
+          "language" : "sql",
+          "content" : "SELECT DISTINCT status AS order_status\n\nFROM {{ ref('salesorderheader')}}\n"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "ZiqjDQXu",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "dim_order_status##VIJhqYBK" : {
+      "id" : "dim_order_status##VIJhqYBK",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "dim_order_status",
+        "phase" : 0,
+        "macroDependencies" : [ "dbt_utils.generate_surrogate_key" ]
+      },
+      "properties" : {
+        "customQueryDisabled" : false,
+        "customQuery" : true,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT \n  {{ dbt_utils.generate_surrogate_key(['stg_order_status.order_status']) }} AS order_status_key,\n  order_status,\n  CASE\n    WHEN order_status = 1\n      THEN 'in_process'\n    WHEN order_status = 2\n      THEN 'approved'\n    WHEN order_status = 3\n      THEN 'backordered'\n    WHEN order_status = 4\n      THEN 'rejected'\n    WHEN order_status = 5\n      THEN 'shipped'\n    WHEN order_status = 6\n      THEN 'cancelled'\n    ELSE 'no_status'\n  END AS order_status_name\n\nFROM stg_order_status\n",
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "QMftjndY",
+          "slug" : "stg_order_status"
+        } ],
+        "outputs" : [ {
+          "id" : "gt0xi26D",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "eX8eQ6oQ",
+    "source" : "stg_order_status##bb1TcZ0M",
+    "sourcePort" : "ZiqjDQXu",
+    "target" : "dim_order_status##VIJhqYBK",
+    "targetPort" : "QMftjndY"
+  } ],
+  "component" : "Model"
+}

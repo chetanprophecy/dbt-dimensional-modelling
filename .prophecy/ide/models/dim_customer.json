@@ -1,0 +1,149 @@
+{
+  "id" : "dim_customer",
+  "metainfo" : {
+    "label" : "dim_customer",
+    "autoLayout" : true,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "userDefinedConfig" : {
+        "vars" : { }
+      }
+    }
+  },
+  "processes" : {
+    "stg_customer##nkcObvkW" : {
+      "id" : "stg_customer##nkcObvkW",
+      "component" : "SQLStatement",
+      "metadata" : {
+        "label" : "stg_customer",
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "fileTabs" : [ {
+          "path" : "",
+          "id" : "",
+          "language" : "sql",
+          "content" : "SELECT \n  customerid,\n  personid,\n  storeid\n\nFROM {{ ref('customer')}}\n"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "NxlEYwGZ",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "stg_person##WBOc57j7" : {
+      "id" : "stg_person##WBOc57j7",
+      "component" : "SQLStatement",
+      "metadata" : {
+        "label" : "stg_person",
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "fileTabs" : [ {
+          "path" : "",
+          "id" : "",
+          "language" : "sql",
+          "content" : "SELECT \n  businessentityid,\n  concat(coalesce(firstname, ''), ' ', coalesce(middlename, ''), ' ', coalesce(lastname, '')) AS fullname\n\nFROM {{ ref('person')}}\n"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "BAE1EZTI",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "stg_store##DMjonTmy" : {
+      "id" : "stg_store##DMjonTmy",
+      "component" : "SQLStatement",
+      "metadata" : {
+        "label" : "stg_store",
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "fileTabs" : [ {
+          "path" : "",
+          "id" : "",
+          "language" : "sql",
+          "content" : "SELECT \n  businessentityid AS storebusinessentityid,\n  storename\n\nFROM {{ ref('store')}}\n"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "xpwjfqYb",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "dim_customer##Wg9GLBSh" : {
+      "id" : "dim_customer##Wg9GLBSh",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "dim_customer",
+        "phase" : 0,
+        "macroDependencies" : [ "dbt_utils.generate_surrogate_key" ]
+      },
+      "properties" : {
+        "customQueryDisabled" : false,
+        "customQuery" : true,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT \n  {{ dbt_utils.generate_surrogate_key(['stg_customer.customerid']) }} AS customer_key,\n  stg_customer.customerid,\n  stg_person.businessentityid,\n  stg_person.fullname,\n  stg_store.storebusinessentityid,\n  stg_store.storename\n\nFROM stg_customer\nLEFT JOIN stg_person\n   ON stg_customer.personid = stg_person.businessentityid\nLEFT JOIN stg_store\n   ON stg_customer.storeid = stg_store.storebusinessentityid\n",
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "srFEDpGx",
+          "slug" : "stg_customer"
+        }, {
+          "id" : "pxRBLAPX",
+          "slug" : "stg_person"
+        }, {
+          "id" : "ComdFr3J",
+          "slug" : "stg_store"
+        } ],
+        "outputs" : [ {
+          "id" : "Yu7QW2Uq",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "ow0OECXq",
+    "source" : "stg_customer##nkcObvkW",
+    "sourcePort" : "NxlEYwGZ",
+    "target" : "dim_customer##Wg9GLBSh",
+    "targetPort" : "srFEDpGx"
+  }, {
+    "id" : "TIdT7fSy",
+    "source" : "stg_person##WBOc57j7",
+    "sourcePort" : "BAE1EZTI",
+    "target" : "dim_customer##Wg9GLBSh",
+    "targetPort" : "pxRBLAPX"
+  }, {
+    "id" : "aEbXkYdA",
+    "source" : "stg_store##DMjonTmy",
+    "sourcePort" : "xpwjfqYb",
+    "target" : "dim_customer##Wg9GLBSh",
+    "targetPort" : "ComdFr3J"
+  } ],
+  "component" : "Model"
+}

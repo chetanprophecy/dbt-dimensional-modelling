@@ -1,0 +1,434 @@
+{
+  "id" : "dim_product",
+  "metainfo" : {
+    "label" : "dim_product",
+    "autoLayout" : true,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "userDefinedConfig" : {
+        "vars" : { }
+      }
+    }
+  },
+  "processes" : {
+    "stg_product##l8taJoKK" : {
+      "id" : "stg_product##l8taJoKK",
+      "component" : "Seed",
+      "metadata" : {
+        "label" : "stg_product",
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "product",
+          "sourceType" : "Seed"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "nSwhoshE",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "productid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "safetystocklevel",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "finishedgoodsflag",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "class",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "makeflag",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "productnumber",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "reorderpoint",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "modifieddate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "rowguid",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "productmodelid",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "weightunitmeasurecode",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "standardcost",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "productsubcategoryid",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "listprice",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "daystomanufacture",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "productline",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "color",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "sellstartdate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "weight",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "stg_product_subcategory##kETC7nin" : {
+      "id" : "stg_product_subcategory##kETC7nin",
+      "component" : "Seed",
+      "metadata" : {
+        "label" : "stg_product_subcategory",
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "productsubcategory",
+          "sourceType" : "Seed"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "Ke79h8SL",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "productsubcategoryid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "productcategoryid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "modifieddate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "stg_product_category##kNovDs29" : {
+      "id" : "stg_product_category##kNovDs29",
+      "component" : "Seed",
+      "metadata" : {
+        "label" : "stg_product_category",
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "productcategory",
+          "sourceType" : "Seed"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "QpWNKYjv",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "productcategoryid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "modifieddate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "dim_product##u6mgagvM" : {
+      "id" : "dim_product##u6mgagvM",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "dim_product",
+        "phase" : 0,
+        "macroDependencies" : [ "dbt_utils.generate_surrogate_key" ]
+      },
+      "properties" : {
+        "customQueryDisabled" : false,
+        "customQuery" : true,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT \n  {{ dbt_utils.generate_surrogate_key(['stg_product.productid']) }} AS product_key,\n  stg_product.productid,\n  stg_product.name AS product_name,\n  stg_product.productnumber,\n  stg_product.color,\n  stg_product.class,\n  stg_product_subcategory.name AS product_subcategory_name,\n  stg_product_category.name AS product_category_name\n\nFROM stg_product\nLEFT JOIN stg_product_subcategory\n   ON stg_product.productsubcategoryid = stg_product_subcategory.productsubcategoryid\nLEFT JOIN stg_product_category\n   ON stg_product_subcategory.productcategoryid = stg_product_category.productcategoryid\n",
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "ll5FZB8v",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "productid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "safetystocklevel",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "finishedgoodsflag",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "class",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "makeflag",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "productnumber",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "reorderpoint",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "modifieddate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "rowguid",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "productmodelid",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "weightunitmeasurecode",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "standardcost",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "productsubcategoryid",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "listprice",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "daystomanufacture",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "productline",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "color",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "sellstartdate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "weight",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "stg_product"
+        }, {
+          "id" : "nhIejOGa",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "productsubcategoryid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "productcategoryid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "modifieddate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            } ]
+          },
+          "slug" : "stg_product_subcategory"
+        }, {
+          "id" : "o0WyUQKY",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "productcategoryid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "modifieddate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            } ]
+          },
+          "slug" : "stg_product_category"
+        } ],
+        "outputs" : [ {
+          "id" : "xnxpGG2G",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "RfQEfvZk",
+    "source" : "stg_product##l8taJoKK",
+    "sourcePort" : "nSwhoshE",
+    "target" : "dim_product##u6mgagvM",
+    "targetPort" : "ll5FZB8v"
+  }, {
+    "id" : "x7SrxQkf",
+    "source" : "stg_product_subcategory##kETC7nin",
+    "sourcePort" : "Ke79h8SL",
+    "target" : "dim_product##u6mgagvM",
+    "targetPort" : "nhIejOGa"
+  }, {
+    "id" : "oyTdLVBq",
+    "source" : "stg_product_category##kNovDs29",
+    "sourcePort" : "QpWNKYjv",
+    "target" : "dim_product##u6mgagvM",
+    "targetPort" : "o0WyUQKY"
+  } ],
+  "component" : "Model"
+}

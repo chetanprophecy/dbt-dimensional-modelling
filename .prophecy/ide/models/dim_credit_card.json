@@ -1,0 +1,180 @@
+{
+  "id" : "dim_credit_card",
+  "metainfo" : {
+    "label" : "dim_credit_card",
+    "autoLayout" : true,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "userDefinedConfig" : {
+        "vars" : { }
+      }
+    }
+  },
+  "processes" : {
+    "stg_salesorderheader##UYO0drx7" : {
+      "id" : "stg_salesorderheader##UYO0drx7",
+      "component" : "SQLStatement",
+      "metadata" : {
+        "label" : "stg_salesorderheader",
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "fileTabs" : [ {
+          "path" : "",
+          "id" : "",
+          "language" : "sql",
+          "content" : "SELECT DISTINCT creditcardid\n\nFROM {{ ref('salesorderheader')}}\n\nWHERE creditcardid IS NOT NULL\n"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "jwYEJnX5",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "stg_creditcard##Cwgkyps8" : {
+      "id" : "stg_creditcard##Cwgkyps8",
+      "component" : "Seed",
+      "metadata" : {
+        "label" : "stg_creditcard",
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "creditcard",
+          "sourceType" : "Seed"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "l7tI7GSb",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "creditcardid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cardtype",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "expyear",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "modifieddate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "expmonth",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cardnumber",
+              "dataType" : {
+                "type" : "Float"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "dim_credit_card##tl7Wi8XH" : {
+      "id" : "dim_credit_card##tl7Wi8XH",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "dim_credit_card",
+        "phase" : 0,
+        "macroDependencies" : [ "dbt_utils.generate_surrogate_key" ]
+      },
+      "properties" : {
+        "customQueryDisabled" : false,
+        "customQuery" : true,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT \n  {{ dbt_utils.generate_surrogate_key(['stg_salesorderheader.creditcardid']) }} AS creditcard_key,\n  stg_salesorderheader.creditcardid,\n  stg_creditcard.cardtype\n\nFROM stg_salesorderheader\nLEFT JOIN stg_creditcard\n   ON stg_salesorderheader.creditcardid = stg_creditcard.creditcardid\n",
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "iqgxUQZd",
+          "slug" : "stg_salesorderheader"
+        }, {
+          "id" : "xzrdVdmZ",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "creditcardid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cardtype",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "expyear",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "modifieddate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "expmonth",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "cardnumber",
+              "dataType" : {
+                "type" : "Float"
+              }
+            } ]
+          },
+          "slug" : "stg_creditcard"
+        } ],
+        "outputs" : [ {
+          "id" : "DHdjv8IT",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "C17VCWlX",
+    "source" : "stg_salesorderheader##UYO0drx7",
+    "sourcePort" : "jwYEJnX5",
+    "target" : "dim_credit_card##tl7Wi8XH",
+    "targetPort" : "iqgxUQZd"
+  }, {
+    "id" : "taPOPD79",
+    "source" : "stg_creditcard##Cwgkyps8",
+    "sourcePort" : "l7tI7GSb",
+    "target" : "dim_credit_card##tl7Wi8XH",
+    "targetPort" : "xzrdVdmZ"
+  } ],
+  "component" : "Model"
+}

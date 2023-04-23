@@ -1,0 +1,282 @@
+name: sql_dimensional_modelling
+description: ''
+version: 0.0.1
+author: null
+language: sql
+buildSystem: ''
+buildSystemDetails: null
+pipelines: {}
+datasets: {}
+templates: {}
+jobs: {}
+functions:
+  author: null
+  createdAt: '2023-04-23 09:51:07'
+  modifiedAt: '2023-04-23 09:51:07'
+  gems: {}
+  udfs: {}
+  udafs: {}
+  expressions: {}
+subgraphs: {}
+sqlModels:
+  .prophecy/metadata/sqlmodels/fct_sales:
+    name: fct_sales
+    description: null
+    author: chetan@prophecy.io
+    files:
+    - models/marts/fct_sales.sql
+    - .prophecy/ide/models/fct_sales.json
+    - models/marts/fct_sales.yml
+    sqlDependencies:
+      models: []
+      datasets: []
+    createdAt: '2023-04-23 09:51:07'
+    modifiedAt: '2023-04-23 09:51:07'
+  .prophecy/metadata/sqlmodels/dim_order_status:
+    name: dim_order_status
+    description: null
+    author: chetan@prophecy.io
+    files:
+    - models/marts/dim_order_status.sql
+    - .prophecy/ide/models/dim_order_status.json
+    - models/marts/dim_order_status.yml
+    sqlDependencies:
+      models: []
+      datasets: []
+    createdAt: '2023-04-23 09:51:07'
+    modifiedAt: '2023-04-23 09:51:07'
+  .prophecy/metadata/sqlmodels/dim_customer:
+    name: dim_customer
+    description: null
+    author: chetan@prophecy.io
+    files:
+    - models/marts/dim_customer.sql
+    - .prophecy/ide/models/dim_customer.json
+    - models/marts/dim_customer.yml
+    sqlDependencies:
+      models: []
+      datasets: []
+    createdAt: '2023-04-23 09:51:07'
+    modifiedAt: '2023-04-23 09:51:07'
+  .prophecy/metadata/sqlmodels/obt_sales:
+    name: obt_sales
+    description: null
+    author: chetan@prophecy.io
+    files:
+    - models/marts/obt_sales.sql
+    - .prophecy/ide/models/obt_sales.json
+    - models/marts/obt_sales.yml
+    sqlDependencies:
+      models: []
+      datasets: []
+    createdAt: '2023-04-23 09:51:07'
+    modifiedAt: '2023-04-23 09:51:07'
+  .prophecy/metadata/sqlmodels/dim_address:
+    name: dim_address
+    description: null
+    author: chetan@prophecy.io
+    files:
+    - models/marts/dim_address.sql
+    - .prophecy/ide/models/dim_address.json
+    - models/marts/dim_address.yml
+    sqlDependencies:
+      models: []
+      datasets: []
+    createdAt: '2023-04-23 09:51:07'
+    modifiedAt: '2023-04-23 09:51:07'
+  .prophecy/metadata/sqlmodels/dim_product:
+    name: dim_product
+    description: null
+    author: chetan@prophecy.io
+    files:
+    - models/marts/dim_product.sql
+    - .prophecy/ide/models/dim_product.json
+    - models/marts/dim_product.yml
+    sqlDependencies:
+      models: []
+      datasets: []
+    createdAt: '2023-04-23 09:51:07'
+    modifiedAt: '2023-04-23 09:51:07'
+  .prophecy/metadata/sqlmodels/dim_date:
+    name: dim_date
+    description: null
+    author: chetan@prophecy.io
+    files:
+    - models/marts/dim_date.sql
+    - .prophecy/ide/models/dim_date.json
+    - models/marts/dim_date.yml
+    sqlDependencies:
+      models: []
+      datasets: []
+    createdAt: '2023-04-23 09:51:07'
+    modifiedAt: '2023-04-23 09:51:07'
+  .prophecy/metadata/sqlmodels/dim_credit_card:
+    name: dim_credit_card
+    description: null
+    author: chetan@prophecy.io
+    files:
+    - models/marts/dim_credit_card.sql
+    - .prophecy/ide/models/dim_credit_card.json
+    - models/marts/dim_credit_card.yml
+    sqlDependencies:
+      models: []
+      datasets: []
+    createdAt: '2023-04-23 09:51:07'
+    modifiedAt: '2023-04-23 09:51:07'
+sqlMacros:
+  .prophecy/metadata/sqlmacros/generate_schema_name:
+    name: generate_schema_name
+    macroType: expression
+    description: null
+    author: chetan@prophecy.io
+    files:
+    - macros/override_default_schema_name.sql
+    createdAt: '2023-04-23 09:51:07'
+    modifiedAt: '2023-04-23 09:51:07'
+sqlSeeds:
+  .prophecy/metadata/sqlseeds/store:
+    name: store
+    description: null
+    author: chetan@prophecy.io
+    files:
+    - seeds/sales/store.csv
+    - seeds/sales/store.yml
+    createdAt: '2023-04-23 09:51:07'
+    modifiedAt: '2023-04-23 09:51:07'
+  .prophecy/metadata/sqlseeds/salesorderdetail:
+    name: salesorderdetail
+    description: null
+    author: chetan@prophecy.io
+    files:
+    - seeds/sales/salesorderdetail.csv
+    - seeds/sales/salesorderdetail.yml
+    createdAt: '2023-04-23 09:51:07'
+    modifiedAt: '2023-04-23 09:51:07'
+  .prophecy/metadata/sqlseeds/stateprovince:
+    name: stateprovince
+    description: null
+    author: chetan@prophecy.io
+    files:
+    - seeds/person/stateprovince.csv
+    - seeds/person/stateprovince.yml
+    createdAt: '2023-04-23 09:51:07'
+    modifiedAt: '2023-04-23 09:51:07'
+  .prophecy/metadata/sqlseeds/customer:
+    name: customer
+    description: null
+    author: chetan@prophecy.io
+    files:
+    - seeds/sales/customer.csv
+    - seeds/sales/customer.yml
+    createdAt: '2023-04-23 09:51:07'
+    modifiedAt: '2023-04-23 09:51:07'
+  .prophecy/metadata/sqlseeds/date:
+    name: date
+    description: null
+    author: chetan@prophecy.io
+    files:
+    - seeds/date/date.csv
+    - seeds/date/date.yml
+    createdAt: '2023-04-23 09:51:07'
+    modifiedAt: '2023-04-23 09:51:07'
+  .prophecy/metadata/sqlseeds/creditcard:
+    name: creditcard
+    description: null
+    author: chetan@prophecy.io
+    files:
+    - seeds/sales/creditcard.csv
+    - seeds/sales/creditcard.yml
+    createdAt: '2023-04-23 09:51:07'
+    modifiedAt: '2023-04-23 09:51:07'
+  .prophecy/metadata/sqlseeds/address:
+    name: address
+    description: null
+    author: chetan@prophecy.io
+    files:
+    - seeds/person/address.csv
+    - seeds/person/address.yml
+    createdAt: '2023-04-23 09:51:07'
+    modifiedAt: '2023-04-23 09:51:07'
+  .prophecy/metadata/sqlseeds/countryregion:
+    name: countryregion
+    description: null
+    author: chetan@prophecy.io
+    files:
+    - seeds/person/countryregion.csv
+    - seeds/person/countryregion.yml
+    createdAt: '2023-04-23 09:51:07'
+    modifiedAt: '2023-04-23 09:51:07'
+  .prophecy/metadata/sqlseeds/salesorderheader:
+    name: salesorderheader
+    description: null
+    author: chetan@prophecy.io
+    files:
+    - seeds/sales/salesorderheader.csv
+    - seeds/sales/salesorderheader.yml
+    createdAt: '2023-04-23 09:51:07'
+    modifiedAt: '2023-04-23 09:51:07'
+  .prophecy/metadata/sqlseeds/product:
+    name: product
+    description: null
+    author: chetan@prophecy.io
+    files:
+    - seeds/production/product.csv
+    - seeds/production/product.yml
+    createdAt: '2023-04-23 09:51:07'
+    modifiedAt: '2023-04-23 09:51:07'
+  .prophecy/metadata/sqlseeds/productsubcategory:
+    name: productsubcategory
+    description: null
+    author: chetan@prophecy.io
+    files:
+    - seeds/production/productsubcategory.csv
+    - seeds/production/productsubcategory.yml
+    createdAt: '2023-04-23 09:51:07'
+    modifiedAt: '2023-04-23 09:51:07'
+  .prophecy/metadata/sqlseeds/salesreason:
+    name: salesreason
+    description: null
+    author: chetan@prophecy.io
+    files:
+    - seeds/sales/salesreason.csv
+    - seeds/sales/salesreason.yml
+    createdAt: '2023-04-23 09:51:07'
+    modifiedAt: '2023-04-23 09:51:07'
+  .prophecy/metadata/sqlseeds/productcategory:
+    name: productcategory
+    description: null
+    author: chetan@prophecy.io
+    files:
+    - seeds/production/productcategory.csv
+    - seeds/production/productcategory.yml
+    createdAt: '2023-04-23 09:51:07'
+    modifiedAt: '2023-04-23 09:51:07'
+  .prophecy/metadata/sqlseeds/salesorderheadersalesreason:
+    name: salesorderheadersalesreason
+    description: null
+    author: chetan@prophecy.io
+    files:
+    - seeds/sales/salesorderheadersalesreason.csv
+    - seeds/sales/salesorderheadersalesreason.yml
+    createdAt: '2023-04-23 09:51:07'
+    modifiedAt: '2023-04-23 09:51:07'
+  .prophecy/metadata/sqlseeds/person:
+    name: person
+    description: null
+    author: chetan@prophecy.io
+    files:
+    - seeds/person/person.csv
+    - seeds/person/person.yml
+    createdAt: '2023-04-23 09:51:07'
+    modifiedAt: '2023-04-23 09:51:07'
+sqlSources: {}
+sqlUnreferencedSources: {}
+sqlPipeline:
+  name: sqlPipeline
+  description: null
+  author: chetan@prophecy.io
+  createdAt: '2023-04-23 09:51:07'
+  modifiedAt: '2023-04-23 09:51:07'
+dependencies: '[]'
+projectDependencies: {}
+pipelineConfigurations: {}
