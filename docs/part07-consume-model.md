@@ -15,7 +15,7 @@ explore: fct_order {
 }
 ```
 
-If your BI tool doesn’t have a semantic layer that supports relationships, then you will have to reflect that relationship by creating a One Big Table (OBT) that joins the fact table against all of its dimension tables. 
+If your BI tool doesn???t have a semantic layer that supports relationships, then you will have to reflect that relationship by creating a One Big Table (OBT) that joins the fact table against all of its dimension tables. 
 
 ```sql
 with f_sales as (

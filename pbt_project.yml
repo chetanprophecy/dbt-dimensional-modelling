@@ -1,0 +1,34 @@
+name: sql_dimensional_modelling
+description: ''
+version: 0.0.1
+author: null
+language: sql
+buildSystem: ''
+buildSystemDetails: null
+pipelines: {}
+datasets: {}
+templates: {}
+jobs: {}
+functions:
+  author: null
+  createdAt: '2023-04-23 09:09:48'
+  modifiedAt: '2023-04-23 09:09:48'
+  gems: {}
+  udfs: {}
+  udafs: {}
+  expressions: {}
+subgraphs: {}
+sqlModels: {}
+sqlMacros: {}
+sqlSeeds: {}
+sqlSources: {}
+sqlUnreferencedSources: {}
+sqlPipeline:
+  name: sqlPipeline
+  description: null
+  author: chetan@prophecy.io
+  createdAt: '2023-04-23 09:09:48'
+  modifiedAt: '2023-04-23 09:09:48'
+dependencies: '[]'
+projectDependencies: {}
+pipelineConfigurations: {}

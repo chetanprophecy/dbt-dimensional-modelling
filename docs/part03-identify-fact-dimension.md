@@ -1,6 +1,6 @@
 ## Part 3: Identify the fact and dimension tables
 
-Based on the information provided from the earlier part, we want to create a dimensional model that represents that business’ Sales process and also be able to slice and dice the data by: 
+Based on the information provided from the earlier part, we want to create a dimensional model that represents that business??? Sales process and also be able to slice and dice the data by: 
 
 - Product category and subcategory
 - Customer
@@ -25,7 +25,7 @@ There are two tables in the sales schema that catch our attention. These two tab
 
 *Sales Order Header and Detail*
 
-Let’s define a fact table called `fct_sales` which joins `sales.salesorderheader` and `sales.salesorderdetail` together. Each record in the fact table (also known as the [grain](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/grain/)) is an order detail.
+Let???s define a fact table called `fct_sales` which joins `sales.salesorderheader` and `sales.salesorderdetail` together. Each record in the fact table (also known as the [grain](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/grain/)) is an order detail.
 
 ![](img/fct_sales.png)
 
@@ -47,7 +47,7 @@ Based on the business questions that our business user would like answered, we c
 - `production.productcategory`
 - `sales.customer`
 - `sales.store`
-- And many more …
+- And many more ???
 
 There are different ways we could create the dimension tables. We could use the existing relationships between the tables as depicted in the diagram below. 
 

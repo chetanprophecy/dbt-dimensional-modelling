@@ -1,6 +1,6 @@
 ## Part 2: Identify the business process
 
-Now that you’ve set up the dbt project, database, and have taken a peek at the schema, it’s time for you to identify the business process. 
+Now that you???ve set up the dbt project, database, and have taken a peek at the schema, it???s time for you to identify the business process. 
 
 Identifying the business process is done in collaboration with the business user. The business user has context around the business objectives and business processes, and can provide you with that information. 
 

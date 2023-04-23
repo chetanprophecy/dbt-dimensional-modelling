@@ -1,19 +1,19 @@
 ## Part 4: Create the dimension tables
 
-Let's first create `dim_product` . The other dimension tables will use the same steps that we’re about to go through. 
+Let's first create `dim_product` . The other dimension tables will use the same steps that we???re about to go through. 
 
 ### Step 1: Create model files
 
-Let’s create the new dbt model files that will contain our transformation code. Under [adventureworks/models/marts](../adventureworks/models/marts) , create two files: 
+Let???s create the new dbt model files that will contain our transformation code. Under [adventureworks/models/marts](../adventureworks/models/marts) , create two files: 
 
 - `dim_product.sql` : This file will contain our SQL transformation code.
 - `dim_product.yml` : This file will contain our documentation and tests for `dim_product` .
 
 ```
 adventureworks/models/
-└── marts
-    ├── dim_product.sql
-    ├── dim_product.yml
+????????? marts
+    ????????? dim_product.sql
+    ????????? dim_product.yml
 ```
 
 ### Step 2: Fetch data from the upstream tables
