@@ -1,0 +1,176 @@
+{
+  "id" : "dim_date",
+  "metainfo" : {
+    "label" : "dim_date",
+    "autoLayout" : true,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "userDefinedConfig" : {
+        "vars" : { }
+      }
+    }
+  },
+  "processes" : {
+    "stg_date##Zv97sNnn" : {
+      "id" : "stg_date##Zv97sNnn",
+      "component" : "Seed",
+      "metadata" : {
+        "label" : "stg_date",
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "date",
+          "sourceType" : "Seed"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "jdo38qqA",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "date_day",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "prior_date_day",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "next_date_day",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "prior_year_date_day",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "prior_year_over_year_date_day",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "day_of_week",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "day_of_week_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "day_of_month",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "day_of_year",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "dim_date##fUDwonRY" : {
+      "id" : "dim_date##fUDwonRY",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "dim_date",
+        "phase" : 0,
+        "macroDependencies" : [ "dbt_utils.generate_surrogate_key" ]
+      },
+      "properties" : {
+        "customQueryDisabled" : false,
+        "customQuery" : true,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT \n  {{ dbt_utils.generate_surrogate_key(['stg_date.date_day']) }} AS date_key,\n  *\n\nFROM stg_date\n",
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "IwGxHGHw",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "date_day",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "prior_date_day",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "next_date_day",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "prior_year_date_day",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "prior_year_over_year_date_day",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "day_of_week",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "day_of_week_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "day_of_month",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "day_of_year",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "stg_date"
+        } ],
+        "outputs" : [ {
+          "id" : "K4X7x8s9",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "c1pYeImI",
+    "source" : "stg_date##Zv97sNnn",
+    "sourcePort" : "jdo38qqA",
+    "target" : "dim_date##fUDwonRY",
+    "targetPort" : "IwGxHGHw"
+  } ],
+  "component" : "Model"
+}

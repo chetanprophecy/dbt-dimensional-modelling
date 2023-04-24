@@ -1,5 +1,5 @@
 businessentityid,title,firstname,middlename,lastname,persontype,namestyle,suffix,modifieddate,rowguid,emailpromotion
-1,,Ken,J,SÃ¡nchez,EM,f,,2009-01-07 00:00:00,92c4279f-1207-48a3-8448-4636514eb7e2,0
+1,,Ken,J,S????nchez,EM,f,,2009-01-07 00:00:00,92c4279f-1207-48a3-8448-4636514eb7e2,0
 2,,Terri,Lee,Duffy,EM,f,,2008-01-24 00:00:00,d8763459-8aa8-47cc-aff7-c9079af79033,1
 3,,Roberto,,Tamburello,EM,f,,2007-11-04 00:00:00,e1a2555e-0828-434b-a33b-6f38136a37de,0
 4,,Rob,,Walters,EM,f,,2007-11-28 00:00:00,f2d7ce06-38b3-4357-805b-f4b6b71c01ff,0
@@ -140,7 +140,7 @@ businessentityid,title,firstname,middlename,lastname,persontype,namestyle,suffix
 144,,Paul,R,Singh,EM,f,,2009-01-10 00:00:00,ba4c0109-a2a4-4595-a357-38a64b643e3c,2
 145,,Cynthia,S,Randall,EM,f,,2009-01-20 00:00:00,f0c15ad6-4cff-4931-a216-49b635596043,0
 146,,Jian Shuo,,Wang,EM,f,,2008-11-30 00:00:00,009ebb72-9173-4aa9-920e-b578f3c927de,0
-147,,Sandra,,ReÃ¡tegui Alayo,EM,f,,2008-12-19 00:00:00,b07fa8a6-a056-48ab-91f8-318c6c87b502,0
+147,,Sandra,,Re????tegui Alayo,EM,f,,2008-12-19 00:00:00,b07fa8a6-a056-48ab-91f8-318c6c87b502,0
 148,,Jason,M,Watters,EM,f,,2009-01-07 00:00:00,00d61032-0d0e-41e3-8f37-b5987c8d5087,0
 149,,Andy,M,Ruth,EM,f,,2009-01-24 00:00:00,9cfdf60a-083a-44dc-afe2-d578c76fd55a,1
 150,,Michael,T,Vanderhyde,EM,f,,2009-02-19 00:00:00,944ae1f8-e154-4752-9a24-8e8fe85156f3,2
@@ -263,7 +263,7 @@ businessentityid,title,firstname,middlename,lastname,persontype,namestyle,suffix
 267,,Karen,A,Berg,EM,f,,2009-02-09 00:00:00,f2d24899-80b9-44f7-9b3b-63acdef3b505,0
 268,,Ramesh,V,Meyyappan,EM,f,,2009-01-27 00:00:00,c69e8136-cbb5-48eb-84a0-59ce62920478,1
 269,,Dan,K,Bacon,EM,f,Jr.,2009-01-04 00:00:00,d9da7900-703f-4ca6-92bd-5ed3a25c0455,0
-270,,FranÃ§ois,P,Ajenstat,EM,f,,2009-01-10 00:00:00,83605af8-6496-4362-be19-20f2ec7114ba,0
+270,,Fran????ois,P,Ajenstat,EM,f,,2009-01-10 00:00:00,83605af8-6496-4362-be19-20f2ec7114ba,0
 271,,Dan,B,Wilson,EM,f,,2009-01-15 00:00:00,9f637d98-7182-4f6a-b68b-1ba9f2eccb4d,0
 272,,Janaina,Barreiro Gambaro,Bueno,EM,f,,2008-12-16 00:00:00,0204851c-3ecc-4968-8504-47706c350e3e,0
 273,Mr.,Brian,S,Welcker,EM,f,,2011-02-08 00:00:00,0950a366-1eee-4516-86e0-6f2f94ce1046,0
@@ -275,10 +275,10 @@ businessentityid,title,firstname,middlename,lastname,persontype,namestyle,suffix
 279,,Tsvi,Michael,Reiter,SP,f,,2011-05-24 00:00:00,fca35010-0144-4c4c-8245-d38e9fd4ccd2,1
 280,,Pamela,O,Ansman-Wolfe,SP,f,,2011-05-24 00:00:00,8c8f5d47-e3f4-4577-be7e-bc224431cf2b,1
 281,,Shu,K,Ito,SP,f,,2011-05-24 00:00:00,ca87a053-6c5f-4f9b-8790-1d0af332153a,2
-282,,JosÃ©,Edvaldo,Saraiva,SP,f,,2011-05-24 00:00:00,120c84eb-8a22-4e1f-8c2b-ff5f144fdb7d,0
+282,,Jos????,Edvaldo,Saraiva,SP,f,,2011-05-24 00:00:00,120c84eb-8a22-4e1f-8c2b-ff5f144fdb7d,0
 283,,David,R,Campbell,SP,f,,2011-05-24 00:00:00,6f44c8d9-e3d0-482c-87dc-cceb09060f31,0
 311,Mr.,Samuel,N.,Agcaoili,SC,f,,2011-08-01 00:00:00,43c55826-2843-49ab-bbbd-41065965a20e,0
-317,Mr.,FranÃ§ois,,Ferrier,SC,f,,2011-05-31 00:00:00,b50c8dcd-ea86-43a5-af69-84b7a6a7faf9,1
+317,Mr.,Fran????ois,,Ferrier,SC,f,,2011-05-31 00:00:00,b50c8dcd-ea86-43a5-af69-84b7a6a7faf9,1
 319,Ms.,Kim,,Akers,SC,f,,2011-08-01 00:00:00,1ee0110f-77ae-4b1b-a05b-b03e0509be95,2
 333,Mr.,J. Phillip,L.,Alexander,SC,f,,2011-08-01 00:00:00,b5078ef5-206c-4fc2-a934-3d0eab5e0c60,1
 339,Ms.,Phyllis,A.,Allen,SC,f,,2011-07-01 00:00:00,4865d7b7-5961-43ca-ad25-9f77d9d5e4a8,1
@@ -1059,7 +1059,7 @@ businessentityid,title,firstname,middlename,lastname,persontype,namestyle,suffix
 5070,,Andres,L,Lal,IN,f,,2011-06-21 00:00:00,22584084-0abf-46d3-931c-0262dee96abe,0
 5074,,Andres,T,Shan,IN,f,,2011-08-19 00:00:00,963b17c8-1358-476b-b1a3-e820aeccba1d,1
 5091,,Andres,A,Nara,IN,f,,2011-11-13 00:00:00,84d8373a-55fb-48c9-be97-97b2563d1f23,2
-5114,,AndrÃ©s,,Anand,IN,f,,2011-09-11 00:00:00,d956d072-9098-4438-b71b-2f288d6e2a2d,0
+5114,,Andr????s,,Anand,IN,f,,2011-09-11 00:00:00,d956d072-9098-4438-b71b-2f288d6e2a2d,0
 5122,,Luke,,Wang,IN,f,,2011-11-12 00:00:00,2238419a-8df7-416a-b58c-861a87aef468,0
 5162,,Karl,M,Rai,IN,f,,2011-07-29 00:00:00,3c680d9f-ac2f-4799-b25c-4656cf178be2,1
 5182,,Jack,,Ross,IN,f,,2011-12-25 00:00:00,1a22f02d-dd0a-4dd7-bbe4-329c818655d4,2
@@ -1120,7 +1120,7 @@ businessentityid,title,firstname,middlename,lastname,persontype,namestyle,suffix
 6012,,Samuel,,Gonzales,IN,f,,2011-11-25 00:00:00,1df8ca00-a828-4aca-8d84-2219014d5c14,0
 6036,,Hunter,F,Coleman,IN,f,,2011-11-14 00:00:00,02ed0f0a-7673-4ae3-961a-4a7122b79a41,0
 6043,,Audrey,,Serrano,IN,f,,2011-11-03 00:00:00,866c1883-cccd-4b2c-94b3-f3ed49bcfcb4,1
-6073,,Beth,H,JimÃ©nez,IN,f,,2011-10-14 00:00:00,e57c747d-0ecd-40b5-83d5-5164441206ed,1
+6073,,Beth,H,Jim????nez,IN,f,,2011-10-14 00:00:00,e57c747d-0ecd-40b5-83d5-5164441206ed,1
 6102,,Noah,,Flores,IN,f,,2011-08-30 00:00:00,09857363-d315-4aa6-9fe7-2ef191099848,0
 6125,,Latasha,L,Rowe,IN,f,,2011-10-07 00:00:00,7ed93c42-d92f-434f-b456-57a75ce340c2,2
 6131,,Daisy,L,Vazquez,IN,f,,2011-09-26 00:00:00,199cec11-05bb-4ca1-a517-7cf833b83767,0
@@ -1442,7 +1442,7 @@ businessentityid,title,firstname,middlename,lastname,persontype,namestyle,suffix
 11215,,Isabella,L,Brown,IN,f,,2011-11-07 00:00:00,af7c543f-2b4f-4fab-8a25-2cd8bc226ed1,0
 11243,,Isabella,,Rodriguez,IN,f,,2011-09-15 00:00:00,053b121b-48e2-4ed7-a81a-b7dc881668d1,1
 11259,,Natalie,R,Miller,IN,f,,2011-10-28 00:00:00,602f14eb-1902-41f7-9004-f3908a25e60b,0
-11260,,Ruben,L,MuÃ±oz,IN,f,,2011-12-29 00:00:00,8823d74e-1e07-4003-ac93-a28af10d99f0,1
+11260,,Ruben,L,Mu????oz,IN,f,,2011-12-29 00:00:00,8823d74e-1e07-4003-ac93-a28af10d99f0,1
 11263,,Natalie,W,Moore,IN,f,,2011-10-28 00:00:00,d542383a-a748-4397-b1b2-b46e05ce1cef,1
 11269,,Ruben,,Torres,IN,f,,2011-06-09 00:00:00,ceb6b318-5d42-4e4f-9646-aa406758000e,2
 11297,,Grace,,Williams,IN,f,,2011-10-02 00:00:00,4058a9a4-a47c-4b15-a409-b185a5eb059a,0
@@ -1898,7 +1898,7 @@ businessentityid,title,firstname,middlename,lastname,persontype,namestyle,suffix
 18247,,Curtis,,Yang,IN,f,,2011-10-01 00:00:00,10a97ac2-468b-4274-a7f8-634355b3761b,0
 18258,,Curtis,,Lu,IN,f,,2011-06-01 00:00:00,d2ce031f-0e7e-468e-ab60-d7d3626fcea9,0
 18344,,John,W,Thomas,IN,f,,2011-12-01 00:00:00,9a912ef4-6e27-428b-8306-c320e7891937,2
-18378,,JÃ©sus,K,Munoz,IN,f,,2011-09-24 00:00:00,cf0ddb23-1af8-4d58-b5e3-9e7fec4a4d13,0
+18378,,J????sus,K,Munoz,IN,f,,2011-09-24 00:00:00,cf0ddb23-1af8-4d58-b5e3-9e7fec4a4d13,0
 18380,,Zachary,,Wilson,IN,f,,2011-08-03 00:00:00,e2280a86-6fbe-4c3f-9856-92ba2ef90689,0
 18399,,William,,Miller,IN,f,,2011-08-16 00:00:00,db8bb9bb-9be3-4ef7-b801-5f7379247ee8,0
 18410,,Larry,,Martin,IN,f,,2011-10-21 00:00:00,2f83406e-eb69-4836-a77e-bf9da2e8f236,0
@@ -1935,7 +1935,7 @@ businessentityid,title,firstname,middlename,lastname,persontype,namestyle,suffix
 19027,,Gary,C,Alonso,IN,f,,2011-12-14 00:00:00,29623d8e-2d6e-4aed-b63a-06f329ab2db5,0
 19041,,Lauren,S,Jenkins,IN,f,,2011-09-05 00:00:00,07649303-6537-43d1-a02e-8520ebe0106b,0
 19050,,Gary,M,Rubio,IN,f,,2011-09-27 00:00:00,cad0372a-f869-4663-8297-23bf2ab453dd,2
-19058,,Craig,,JimÃ©nez,IN,f,,2011-06-30 00:00:00,e4f605e1-0f8c-4305-bb8f-7abefee2df64,2
+19058,,Craig,,Jim????nez,IN,f,,2011-06-30 00:00:00,e4f605e1-0f8c-4305-bb8f-7abefee2df64,2
 19059,,Craig,N,Moreno,IN,f,,2011-09-08 00:00:00,bcf690fc-5837-46da-a11b-2ea31b04424a,1
 19094,,Derrick,,Martin,IN,f,,2011-09-11 00:00:00,d4504534-bf67-4476-9259-416401d5fa79,2
 19095,,Derrick,,Gomez,IN,f,,2011-11-02 00:00:00,262fd61d-3032-47b9-b5af-3ac74dcdbc75,1

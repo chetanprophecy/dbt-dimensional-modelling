@@ -1,0 +1,115 @@
+{
+  "id" : "fct_sales",
+  "metainfo" : {
+    "label" : "fct_sales",
+    "autoLayout" : true,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "userDefinedConfig" : {
+        "vars" : { }
+      }
+    }
+  },
+  "processes" : {
+    "stg_salesorderheader##LjvzqLBg" : {
+      "id" : "stg_salesorderheader##LjvzqLBg",
+      "component" : "SQLStatement",
+      "metadata" : {
+        "label" : "stg_salesorderheader",
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "fileTabs" : [ {
+          "path" : "",
+          "id" : "",
+          "language" : "sql",
+          "content" : "SELECT \n  salesorderid,\n  customerid,\n  creditcardid,\n  shiptoaddressid,\n  status AS order_status,\n  CAST(orderdate AS date) AS orderdate\n\nFROM {{ ref('salesorderheader')}}\n"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "F5WCxk9g",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "stg_salesorderdetail##VorE4a51" : {
+      "id" : "stg_salesorderdetail##VorE4a51",
+      "component" : "SQLStatement",
+      "metadata" : {
+        "label" : "stg_salesorderdetail",
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "fileTabs" : [ {
+          "path" : "",
+          "id" : "",
+          "language" : "sql",
+          "content" : "SELECT \n  salesorderid,\n  salesorderdetailid,\n  productid,\n  orderqty,\n  unitprice,\n  unitprice * orderqty AS revenue\n\nFROM {{ ref('salesorderdetail')}}\n"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "KzNtuRI8",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "fct_sales##zCbUsKBb" : {
+      "id" : "fct_sales##zCbUsKBb",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "fct_sales",
+        "phase" : 0,
+        "macroDependencies" : [ "dbt_utils.generate_surrogate_key" ]
+      },
+      "properties" : {
+        "customQueryDisabled" : false,
+        "customQuery" : true,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT \n  {{ dbt_utils.generate_surrogate_key(['stg_salesorderdetail.salesorderid', 'salesorderdetailid']) }} AS sales_key,\n  {{ dbt_utils.generate_surrogate_key(['productid']) }} AS product_key,\n  {{ dbt_utils.generate_surrogate_key(['customerid']) }} AS customer_key,\n  {{ dbt_utils.generate_surrogate_key(['creditcardid']) }} AS creditcard_key,\n  {{ dbt_utils.generate_surrogate_key(['shiptoaddressid']) }} AS ship_address_key,\n  {{ dbt_utils.generate_surrogate_key(['order_status']) }} AS order_status_key,\n  {{ dbt_utils.generate_surrogate_key(['orderdate']) }} AS order_date_key,\n  stg_salesorderdetail.salesorderid,\n  stg_salesorderdetail.salesorderdetailid,\n  stg_salesorderdetail.unitprice,\n  stg_salesorderdetail.orderqty,\n  stg_salesorderdetail.revenue\n\nFROM stg_salesorderdetail\nINNER JOIN stg_salesorderheader\n   ON stg_salesorderdetail.salesorderid = stg_salesorderheader.salesorderid\n",
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "kOPsICzI",
+          "slug" : "stg_salesorderdetail"
+        }, {
+          "id" : "zDHfdfHo",
+          "slug" : "stg_salesorderheader"
+        } ],
+        "outputs" : [ {
+          "id" : "wbfO9lcO",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "gccytEzO",
+    "source" : "stg_salesorderdetail##VorE4a51",
+    "sourcePort" : "KzNtuRI8",
+    "target" : "fct_sales##zCbUsKBb",
+    "targetPort" : "kOPsICzI"
+  }, {
+    "id" : "SNYLKrfy",
+    "source" : "stg_salesorderheader##LjvzqLBg",
+    "sourcePort" : "F5WCxk9g",
+    "target" : "fct_sales##zCbUsKBb",
+    "targetPort" : "zDHfdfHo"
+  } ],
+  "component" : "Model"
+}

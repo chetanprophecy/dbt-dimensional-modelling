@@ -1,0 +1,27 @@
+{
+  "macro_x63nTYev" : {
+    "name" : "generate_schema_name",
+    "macroId" : "macro_x63nTYev",
+    "macroType" : "expression",
+    "definition" : "{% set default_schema = target.schema %}\n \n{% if custom_schema_name is none %}\n  {{default_schema}}\n{% else %}\n  {{custom_schema_name | trim}}\n{% endif %} \n",
+    "parameters" : {
+      "type" : "record",
+      "fields" : [ {
+        "name" : "custom_schema_name",
+        "kind" : {
+          "type" : "value"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false
+      }, {
+        "name" : "node",
+        "kind" : {
+          "type" : "value"
+        },
+        "optional" : false,
+        "isWorkflowNodeConfiguration" : false
+      } ]
+    },
+    "staleState" : "none"
+  }
+}
