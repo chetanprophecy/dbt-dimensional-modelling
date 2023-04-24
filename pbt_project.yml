@@ -57,19 +57,18 @@ sqlModels:
       datasets: []
     createdAt: '2023-04-23 10:47:23'
     modifiedAt: '2023-04-23 10:47:23'
-  .prophecy/metadata/sqlmodels/obt_sales:
-    name: obt_sales
+  .prophecy/metadata/sqlmodels/onebigtable_sales:
+    name: onebigtable_sales
     description: null
     author: chetan@prophecy.io
     files:
-    - models/marts/obt_sales.sql
-    - .prophecy/ide/models/obt_sales.json
-    - models/marts/obt_sales.yml
+    - models/onebigtable_sales.sql
+    - .prophecy/ide/models/onebigtable_sales.json
     sqlDependencies:
       models: []
       datasets: []
-    createdAt: '2023-04-23 09:51:07'
-    modifiedAt: '2023-04-23 09:51:07'
+    createdAt: '2023-04-24 13:52:40'
+    modifiedAt: '2023-04-24 13:52:40'
   .prophecy/metadata/sqlmodels/dim_address:
     name: dim_address
     description: null
