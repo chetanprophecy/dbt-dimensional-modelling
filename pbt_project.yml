@@ -122,7 +122,16 @@ sqlModels:
       datasets: []
     createdAt: '2023-04-23 09:51:07'
     modifiedAt: '2023-04-23 09:51:07'
-sqlMacros: {}
+sqlMacros:
+  .prophecy/metadata/sqlmacros/generate_schema_name:
+    name: generate_schema_name
+    macroType: expression
+    description: null
+    author: kunalg@prophecy.io
+    files:
+    - macros/override_default_schema_name.sql
+    createdAt: '2023-04-24 08:41:58'
+    modifiedAt: '2023-04-24 08:41:58'
 sqlSeeds:
   .prophecy/metadata/sqlseeds/store:
     name: store
