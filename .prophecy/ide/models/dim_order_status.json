@@ -2,7 +2,7 @@
   "id" : "dim_order_status",
   "metainfo" : {
     "label" : "dim_order_status",
-    "autoLayout" : true,
+    "autoLayout" : false,
     "staleState" : "none",
     "sourceSuggestions" : {
       "sources" : [ ]
@@ -14,36 +14,156 @@
     }
   },
   "processes" : {
-    "stg_order_status##bb1TcZ0M" : {
-      "id" : "stg_order_status##bb1TcZ0M",
-      "component" : "SQLStatement",
+    "stg_order_status##ofq3l10B" : {
+      "id" : "stg_order_status##ofq3l10B",
+      "component" : "Seed",
       "metadata" : {
         "label" : "stg_order_status",
-        "phase" : 0,
-        "macroDependencies" : [ ]
+        "x" : -100,
+        "y" : 120,
+        "phase" : 0
       },
       "properties" : {
-        "fileTabs" : [ {
-          "path" : "",
-          "id" : "",
-          "language" : "sql",
-          "content" : "SELECT DISTINCT status AS order_status\n\nFROM {{ ref('salesorderheader')}}\n"
-        } ]
+        "table" : {
+          "name" : "salesorderheader",
+          "sourceType" : "Seed"
+        }
       },
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "ZiqjDQXu",
+          "id" : "RuL1kgIQ",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "salesorderid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "shipmethodid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "billtoaddressid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "modifieddate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "rowguid",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "taxamt",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "shiptoaddressid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "onlineorderflag",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "territoryid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "orderdate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "creditcardapprovalcode",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "subtotal",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "creditcardid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "currencyrateid",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "revisionnumber",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "freight",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "duedate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "totaldue",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "customerid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "salespersonid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "shipdate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "accountnumber",
+              "dataType" : {
+                "type" : "Date"
+              }
+            } ]
+          },
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false
       }
     },
-    "dim_order_status##VIJhqYBK" : {
-      "id" : "dim_order_status##VIJhqYBK",
+    "dim_order_status##BrWCXQtH" : {
+      "id" : "dim_order_status##BrWCXQtH",
       "component" : "TargetModel",
       "metadata" : {
         "label" : "dim_order_status",
+        "x" : 320,
+        "y" : 120,
         "phase" : 0,
         "macroDependencies" : [ "dbt_utils.generate_surrogate_key" ]
       },
@@ -51,7 +171,7 @@
         "customQueryDisabled" : false,
         "customQuery" : true,
         "incrementalEditorDisabled" : true,
-        "query" : "SELECT \n  {{ dbt_utils.generate_surrogate_key(['stg_order_status.order_status']) }} AS order_status_key,\n  order_status,\n  CASE\n    WHEN order_status = 1\n      THEN 'in_process'\n    WHEN order_status = 2\n      THEN 'approved'\n    WHEN order_status = 3\n      THEN 'backordered'\n    WHEN order_status = 4\n      THEN 'rejected'\n    WHEN order_status = 5\n      THEN 'shipped'\n    WHEN order_status = 6\n      THEN 'cancelled'\n    ELSE 'no_status'\n  END AS order_status_name\n\nFROM stg_order_status\n",
+        "query" : "SELECT \n  {{ dbt_utils.generate_surrogate_key(['Reformat_1.order_status']) }} AS order_status_key,\n  order_status,\n  CASE\n    WHEN order_status = 1\n      THEN 'in_process'\n    WHEN order_status = 2\n      THEN 'approved'\n    WHEN order_status = 3\n      THEN 'backordered'\n    WHEN order_status = 4\n      THEN 'rejected'\n    WHEN order_status = 5\n      THEN 'shipped'\n    WHEN order_status = 6\n      THEN 'cancelled'\n    ELSE 'no_status'\n  END AS order_status_name\n\nFROM Reformat_1\n",
         "incrementalKey" : false,
         "incremental" : {
           "expression" : "true"
@@ -59,11 +179,199 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "QMftjndY",
-          "slug" : "stg_order_status"
+          "id" : "U7DWV7qj",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "order_status",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "Reformat_1"
         } ],
         "outputs" : [ {
-          "id" : "gt0xi26D",
+          "id" : "adsZgOE2",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "order_status_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "order_status",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_status_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "PFjntDV0U7K7Mla5Q06Tq$$T6AWzitne_dnVgCtWTEia" : {
+      "id" : "PFjntDV0U7K7Mla5Q06Tq$$T6AWzitne_dnVgCtWTEia",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "Reformat_1",
+        "slug" : "Reformat_1",
+        "x" : 100,
+        "y" : 120,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "columnsSelector" : [ "rDdHH1gsmGlUwvXB3ziUK$$rYCNwI6st8RdD88G5uBKa##status" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "distinct(status)"
+          },
+          "alias" : "order_status"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "rDdHH1gsmGlUwvXB3ziUK$$rYCNwI6st8RdD88G5uBKa",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "salesorderid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "shipmethodid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "billtoaddressid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "modifieddate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "rowguid",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "taxamt",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "shiptoaddressid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "onlineorderflag",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "territoryid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "orderdate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "creditcardapprovalcode",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "subtotal",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "creditcardid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "currencyrateid",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "revisionnumber",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "freight",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "duedate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "totaldue",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "customerid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "salespersonid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "shipdate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "accountnumber",
+              "dataType" : {
+                "type" : "Date"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "BrBou7XbN_HeACN3Duwru$$jOj8U4dpZXfgS2Cjq0BYm",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "order_status",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false
@@ -71,11 +379,17 @@
     }
   },
   "connections" : [ {
-    "id" : "eX8eQ6oQ",
-    "source" : "stg_order_status##bb1TcZ0M",
-    "sourcePort" : "ZiqjDQXu",
-    "target" : "dim_order_status##VIJhqYBK",
-    "targetPort" : "QMftjndY"
+    "id" : "I92b9IIkDfgkEhYOIEWvi$$BLCPhvNmoAajmHrB1mi1l",
+    "source" : "stg_order_status##ofq3l10B",
+    "sourcePort" : "RuL1kgIQ",
+    "target" : "PFjntDV0U7K7Mla5Q06Tq$$T6AWzitne_dnVgCtWTEia",
+    "targetPort" : "rDdHH1gsmGlUwvXB3ziUK$$rYCNwI6st8RdD88G5uBKa"
+  }, {
+    "id" : "K1--K8fmAz2Wm-fPI6teK",
+    "source" : "PFjntDV0U7K7Mla5Q06Tq$$T6AWzitne_dnVgCtWTEia",
+    "sourcePort" : "BrBou7XbN_HeACN3Duwru$$jOj8U4dpZXfgS2Cjq0BYm",
+    "target" : "dim_order_status##BrWCXQtH",
+    "targetPort" : "U7DWV7qj"
   } ],
   "component" : "Model"
 }

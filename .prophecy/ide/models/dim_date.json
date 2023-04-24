@@ -2,7 +2,7 @@
   "id" : "dim_date",
   "metainfo" : {
     "label" : "dim_date",
-    "autoLayout" : true,
+    "autoLayout" : false,
     "staleState" : "none",
     "sourceSuggestions" : {
       "sources" : [ ]
@@ -19,6 +19,8 @@
       "component" : "Seed",
       "metadata" : {
         "label" : "stg_date",
+        "x" : 120,
+        "y" : 120,
         "phase" : 0
       },
       "properties" : {
@@ -90,6 +92,8 @@
       "component" : "TargetModel",
       "metadata" : {
         "label" : "dim_date",
+        "x" : 320,
+        "y" : 120,
         "phase" : 0,
         "macroDependencies" : [ "dbt_utils.generate_surrogate_key" ]
       },
@@ -159,6 +163,60 @@
         } ],
         "outputs" : [ {
           "id" : "YPY7a3Zt",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "date_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "date_day",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "prior_date_day",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "next_date_day",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "prior_year_date_day",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "prior_year_over_year_date_day",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "day_of_week",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "day_of_week_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "day_of_month",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "day_of_year",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false

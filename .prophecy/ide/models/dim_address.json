@@ -2,7 +2,7 @@
   "id" : "dim_address",
   "metainfo" : {
     "label" : "dim_address",
-    "autoLayout" : true,
+    "autoLayout" : false,
     "staleState" : "none",
     "sourceSuggestions" : {
       "sources" : [ ]
@@ -19,6 +19,8 @@
       "component" : "Seed",
       "metadata" : {
         "label" : "stg_address",
+        "x" : 120,
+        "y" : 120,
         "phase" : 0
       },
       "properties" : {
@@ -90,6 +92,8 @@
       "component" : "Seed",
       "metadata" : {
         "label" : "stg_stateprovince",
+        "x" : 120,
+        "y" : 320,
         "phase" : 0
       },
       "properties" : {
@@ -156,6 +160,8 @@
       "component" : "Seed",
       "metadata" : {
         "label" : "stg_countryregion",
+        "x" : 120,
+        "y" : 520,
         "phase" : 0
       },
       "properties" : {
@@ -197,6 +203,8 @@
       "component" : "TargetModel",
       "metadata" : {
         "label" : "dim_address",
+        "x" : 340,
+        "y" : 320,
         "phase" : 0,
         "macroDependencies" : [ "dbt_utils.generate_surrogate_key" ]
       },
@@ -335,6 +343,35 @@
         } ],
         "outputs" : [ {
           "id" : "obXNyhbc",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "address_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "addressid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "city_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "state_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "country_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false

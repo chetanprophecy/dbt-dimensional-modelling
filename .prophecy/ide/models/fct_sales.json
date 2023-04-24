@@ -2,7 +2,7 @@
   "id" : "fct_sales",
   "metainfo" : {
     "label" : "fct_sales",
-    "autoLayout" : true,
+    "autoLayout" : false,
     "staleState" : "none",
     "sourceSuggestions" : {
       "sources" : [ ]
@@ -14,61 +14,526 @@
     }
   },
   "processes" : {
-    "stg_salesorderheader##yttldT3V" : {
-      "id" : "stg_salesorderheader##yttldT3V",
-      "component" : "SQLStatement",
+    "MZd28-GIyn9Ef-pUcyLC_$$IG4b7jxtDLOZNcSKD9_71" : {
+      "id" : "MZd28-GIyn9Ef-pUcyLC_$$IG4b7jxtDLOZNcSKD9_71",
+      "component" : "Join",
       "metadata" : {
-        "label" : "stg_salesorderheader",
+        "label" : "Join_1",
+        "slug" : "Join_1",
+        "x" : 540,
+        "y" : 160,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "fileTabs" : [ {
-          "path" : "",
-          "id" : "",
-          "language" : "sql",
-          "content" : "SELECT \n  salesorderid,\n  customerid,\n  creditcardid,\n  shiptoaddressid,\n  status AS order_status,\n  CAST(orderdate AS date) AS orderdate\n\nFROM {{ ref('salesorderheader')}}\n"
-        } ]
+        "conditions" : [ {
+          "alias" : "in1",
+          "expression" : {
+            "expression" : "in0.salesorderid=in1.salesorderid"
+          },
+          "joinType" : "inner"
+        } ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "in0.salesorderid"
+          },
+          "alias" : "salesorderid"
+        }, {
+          "expression" : {
+            "expression" : "in0.salesorderdetailid"
+          },
+          "alias" : "salesorderdetailid"
+        }, {
+          "expression" : {
+            "expression" : "in0.orderqty"
+          },
+          "alias" : "orderqty"
+        }, {
+          "expression" : {
+            "expression" : "in0.unitprice"
+          },
+          "alias" : "unitprice"
+        }, {
+          "expression" : {
+            "expression" : "in0.revenue"
+          },
+          "alias" : "revenue"
+        }, {
+          "expression" : {
+            "expression" : "in1.customerid"
+          },
+          "alias" : "customerid"
+        }, {
+          "expression" : {
+            "expression" : "in1.creditcardid"
+          },
+          "alias" : "creditcardid"
+        }, {
+          "expression" : {
+            "expression" : "in1.shiptoaddressid"
+          },
+          "alias" : "shiptoaddressid"
+        }, {
+          "expression" : {
+            "expression" : "in1.order_status"
+          },
+          "alias" : "order_status"
+        }, {
+          "expression" : {
+            "expression" : "in1.orderdate"
+          },
+          "alias" : "orderdate"
+        }, {
+          "expression" : {
+            "expression" : "concat(in0.salesorderid,in0.salesorderdetailid)"
+          },
+          "alias" : "custom_key"
+        }, {
+          "expression" : {
+            "expression" : "in0.productid"
+          },
+          "alias" : "productid"
+        } ],
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "2T35lkdbUp2lXOnRTRezm$$mczCjdve54jb3YOqNl8f0##salesorderid", "HNrNVK0E9tuuUoEpzQeTt$$eXHjtiArpQDN1H4m2W_26##salesorderid", "2T35lkdbUp2lXOnRTRezm$$mczCjdve54jb3YOqNl8f0##salesorderid", "2T35lkdbUp2lXOnRTRezm$$mczCjdve54jb3YOqNl8f0##salesorderdetailid", "2T35lkdbUp2lXOnRTRezm$$mczCjdve54jb3YOqNl8f0##orderqty", "2T35lkdbUp2lXOnRTRezm$$mczCjdve54jb3YOqNl8f0##unitprice", "2T35lkdbUp2lXOnRTRezm$$mczCjdve54jb3YOqNl8f0##revenue", "HNrNVK0E9tuuUoEpzQeTt$$eXHjtiArpQDN1H4m2W_26##customerid", "HNrNVK0E9tuuUoEpzQeTt$$eXHjtiArpQDN1H4m2W_26##creditcardid", "HNrNVK0E9tuuUoEpzQeTt$$eXHjtiArpQDN1H4m2W_26##shiptoaddressid", "HNrNVK0E9tuuUoEpzQeTt$$eXHjtiArpQDN1H4m2W_26##order_status", "HNrNVK0E9tuuUoEpzQeTt$$eXHjtiArpQDN1H4m2W_26##orderdate", "2T35lkdbUp2lXOnRTRezm$$mczCjdve54jb3YOqNl8f0##productid" ],
+        "headAlias" : "in0"
       },
       "ports" : {
-        "inputs" : [ ],
+        "inputs" : [ {
+          "id" : "2T35lkdbUp2lXOnRTRezm$$mczCjdve54jb3YOqNl8f0",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "salesorderid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "salesorderdetailid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "productid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "orderqty",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "unitprice",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "revenue",
+              "dataType" : {
+                "type" : "Float"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        }, {
+          "id" : "HNrNVK0E9tuuUoEpzQeTt$$eXHjtiArpQDN1H4m2W_26",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "salesorderid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "customerid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "creditcardid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "shiptoaddressid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_status",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "orderdate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            } ]
+          },
+          "slug" : "in1"
+        } ],
         "outputs" : [ {
-          "id" : "KQBsGafP",
+          "id" : "4z9tzFQT07h2Fq_HAF-gb$$LnMIN5ooI64p4388Ryxlo",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "salesorderid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "salesorderdetailid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "orderqty",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "unitprice",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "revenue",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "customerid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "creditcardid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "shiptoaddressid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_status",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "orderdate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "custom_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "productid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false
       }
     },
-    "stg_salesorderdetail##NqFJN78U" : {
-      "id" : "stg_salesorderdetail##NqFJN78U",
-      "component" : "SQLStatement",
+    "stg_salesorderdetail##pcTZQUjG" : {
+      "id" : "stg_salesorderdetail##pcTZQUjG",
+      "component" : "Reformat",
       "metadata" : {
         "label" : "stg_salesorderdetail",
+        "x" : 320,
+        "y" : 120,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "fileTabs" : [ {
-          "path" : "",
-          "id" : "",
-          "language" : "sql",
-          "content" : "SELECT \n  salesorderid,\n  salesorderdetailid,\n  productid,\n  orderqty,\n  unitprice,\n  unitprice * orderqty AS revenue\n\nFROM {{ ref('salesorderdetail')}}\n"
+        "columnsSelector" : [ "KxVpTJlq##salesorderid", "KxVpTJlq##salesorderdetailid", "KxVpTJlq##productid", "KxVpTJlq##orderqty", "KxVpTJlq##unitprice" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "salesorderid"
+          },
+          "alias" : "salesorderid"
+        }, {
+          "expression" : {
+            "expression" : "salesorderdetailid"
+          },
+          "alias" : "salesorderdetailid"
+        }, {
+          "expression" : {
+            "expression" : "productid"
+          },
+          "alias" : "productid"
+        }, {
+          "expression" : {
+            "expression" : "orderqty"
+          },
+          "alias" : "orderqty"
+        }, {
+          "expression" : {
+            "expression" : "unitprice"
+          },
+          "alias" : "unitprice"
+        }, {
+          "expression" : {
+            "expression" : "unitprice * orderqty"
+          },
+          "alias" : "revenue"
         } ]
       },
       "ports" : {
-        "inputs" : [ ],
+        "inputs" : [ {
+          "id" : "KxVpTJlq",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "salesorderid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "orderqty",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "salesorderdetailid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "unitprice",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "specialofferid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "modifieddate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "rowguid",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "productid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "unitpricediscount",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
         "outputs" : [ {
-          "id" : "q73RU7bh",
+          "id" : "GKkv0XLF",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "salesorderid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "salesorderdetailid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "productid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "orderqty",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "unitprice",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "revenue",
+              "dataType" : {
+                "type" : "Float"
+              }
+            } ]
+          },
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false
       }
     },
-    "fct_sales##ucTHniXH" : {
-      "id" : "fct_sales##ucTHniXH",
+    "salesorderheader##MI9iJ2OM" : {
+      "id" : "salesorderheader##MI9iJ2OM",
+      "component" : "Seed",
+      "metadata" : {
+        "label" : "salesorderheader",
+        "x" : 120,
+        "y" : 320,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "salesorderheader",
+          "sourceType" : "Seed"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "hjiKHFjH",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "salesorderid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "shipmethodid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "billtoaddressid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "modifieddate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "rowguid",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "taxamt",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "shiptoaddressid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "onlineorderflag",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "territoryid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "orderdate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "creditcardapprovalcode",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "subtotal",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "creditcardid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "currencyrateid",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "revisionnumber",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "freight",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "duedate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "totaldue",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "customerid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "salespersonid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "shipdate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "accountnumber",
+              "dataType" : {
+                "type" : "Date"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "fct_sales##pUbo9asC" : {
+      "id" : "fct_sales##pUbo9asC",
       "component" : "TargetModel",
       "metadata" : {
         "label" : "fct_sales",
+        "x" : 700,
+        "y" : 160,
         "phase" : 0,
         "macroDependencies" : [ "dbt_utils.generate_surrogate_key" ]
       },
@@ -76,7 +541,7 @@
         "customQueryDisabled" : false,
         "customQuery" : true,
         "incrementalEditorDisabled" : true,
-        "query" : "SELECT \n  {{ dbt_utils.generate_surrogate_key(['stg_salesorderdetail.salesorderid', 'salesorderdetailid']) }} AS sales_key,\n  {{ dbt_utils.generate_surrogate_key(['productid']) }} AS product_key,\n  {{ dbt_utils.generate_surrogate_key(['customerid']) }} AS customer_key,\n  {{ dbt_utils.generate_surrogate_key(['creditcardid']) }} AS creditcard_key,\n  {{ dbt_utils.generate_surrogate_key(['shiptoaddressid']) }} AS ship_address_key,\n  {{ dbt_utils.generate_surrogate_key(['order_status']) }} AS order_status_key,\n  {{ dbt_utils.generate_surrogate_key(['orderdate']) }} AS order_date_key,\n  stg_salesorderdetail.salesorderid,\n  stg_salesorderdetail.salesorderdetailid,\n  stg_salesorderdetail.unitprice,\n  stg_salesorderdetail.orderqty,\n  stg_salesorderdetail.revenue\n\nFROM stg_salesorderdetail\nINNER JOIN stg_salesorderheader\n   ON stg_salesorderdetail.salesorderid = stg_salesorderheader.salesorderid\n",
+        "query" : "SELECT \n  {{ dbt_utils.generate_surrogate_key(['custom_key']) }} AS sales_key,\n  {{ dbt_utils.generate_surrogate_key(['productid']) }} AS product_key,\n  {{ dbt_utils.generate_surrogate_key(['customerid']) }} AS customer_key,\n  {{ dbt_utils.generate_surrogate_key(['creditcardid']) }} AS creditcard_key,\n  {{ dbt_utils.generate_surrogate_key(['shiptoaddressid']) }} AS ship_address_key,\n  {{ dbt_utils.generate_surrogate_key(['order_status']) }} AS order_status_key,\n  {{ dbt_utils.generate_surrogate_key(['orderdate']) }} AS order_date_key,\n  Join_1.salesorderid,\n  Join_1.salesorderdetailid,\n  Join_1.unitprice,\n  Join_1.orderqty,\n  Join_1.revenue\n\nFROM Join_1",
         "incrementalKey" : false,
         "incremental" : {
           "expression" : "true"
@@ -84,14 +549,421 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "ypopvQnX",
-          "slug" : "stg_salesorderdetail"
-        }, {
-          "id" : "BshGt8GA",
-          "slug" : "stg_salesorderheader"
+          "id" : "LDsVXxi2",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "salesorderid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "salesorderdetailid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "orderqty",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "unitprice",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "revenue",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "customerid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "creditcardid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "shiptoaddressid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_status",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "orderdate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "custom_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "productid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "Join_1"
         } ],
         "outputs" : [ {
-          "id" : "AiBwtEqW",
+          "id" : "sAxFxeP9",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "sales_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "product_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "customer_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "creditcard_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ship_address_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "order_status_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "order_date_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "salesorderid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "salesorderdetailid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "unitprice",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "orderqty",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "revenue",
+              "dataType" : {
+                "type" : "Float"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "stg_salesorderheader##JaKkRReE" : {
+      "id" : "stg_salesorderheader##JaKkRReE",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "stg_salesorderheader",
+        "x" : 320,
+        "y" : 320,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "columnsSelector" : [ "gFuFCE4B##salesorderid", "gFuFCE4B##customerid", "gFuFCE4B##creditcardid", "gFuFCE4B##shiptoaddressid", "gFuFCE4B##status", "gFuFCE4B##orderdate" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "salesorderid"
+          },
+          "alias" : "salesorderid"
+        }, {
+          "expression" : {
+            "expression" : "customerid"
+          },
+          "alias" : "customerid"
+        }, {
+          "expression" : {
+            "expression" : "creditcardid"
+          },
+          "alias" : "creditcardid"
+        }, {
+          "expression" : {
+            "expression" : "shiptoaddressid"
+          },
+          "alias" : "shiptoaddressid"
+        }, {
+          "expression" : {
+            "expression" : "status"
+          },
+          "alias" : "order_status"
+        }, {
+          "expression" : {
+            "expression" : "CAST(orderdate AS date)"
+          },
+          "alias" : "orderdate"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "gFuFCE4B",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "salesorderid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "shipmethodid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "billtoaddressid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "modifieddate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "rowguid",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "taxamt",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "shiptoaddressid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "onlineorderflag",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "territoryid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "orderdate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "creditcardapprovalcode",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "subtotal",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "creditcardid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "currencyrateid",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "revisionnumber",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "freight",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "duedate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "totaldue",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "customerid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "salespersonid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "shipdate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "accountnumber",
+              "dataType" : {
+                "type" : "Date"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "tTYMZV5L",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "salesorderid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "customerid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "creditcardid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "shiptoaddressid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_status",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "orderdate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "salesorderdetail##SkcHNAOK" : {
+      "id" : "salesorderdetail##SkcHNAOK",
+      "component" : "Seed",
+      "metadata" : {
+        "label" : "salesorderdetail",
+        "x" : 120,
+        "y" : 120,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "salesorderdetail",
+          "sourceType" : "Seed"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "jOPgVm4B",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "salesorderid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "orderqty",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "salesorderdetailid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "unitprice",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "specialofferid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "modifieddate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "rowguid",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "productid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "unitpricediscount",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false
@@ -99,17 +971,35 @@
     }
   },
   "connections" : [ {
-    "id" : "LouXbz77",
-    "source" : "stg_salesorderdetail##NqFJN78U",
-    "sourcePort" : "q73RU7bh",
-    "target" : "fct_sales##ucTHniXH",
-    "targetPort" : "ypopvQnX"
+    "id" : "QeUaZq1H",
+    "source" : "salesorderdetail##SkcHNAOK",
+    "sourcePort" : "jOPgVm4B",
+    "target" : "stg_salesorderdetail##pcTZQUjG",
+    "targetPort" : "KxVpTJlq"
   }, {
-    "id" : "RswQviTA",
-    "source" : "stg_salesorderheader##yttldT3V",
-    "sourcePort" : "KQBsGafP",
-    "target" : "fct_sales##ucTHniXH",
-    "targetPort" : "BshGt8GA"
+    "id" : "o7D7uMNh",
+    "source" : "salesorderheader##MI9iJ2OM",
+    "sourcePort" : "hjiKHFjH",
+    "target" : "stg_salesorderheader##JaKkRReE",
+    "targetPort" : "gFuFCE4B"
+  }, {
+    "id" : "3DxeiUdpWgJlKyulaJEV4",
+    "source" : "stg_salesorderdetail##pcTZQUjG",
+    "sourcePort" : "GKkv0XLF",
+    "target" : "MZd28-GIyn9Ef-pUcyLC_$$IG4b7jxtDLOZNcSKD9_71",
+    "targetPort" : "2T35lkdbUp2lXOnRTRezm$$mczCjdve54jb3YOqNl8f0"
+  }, {
+    "id" : "DC1IUO8JycvTmTUNGceU_",
+    "source" : "stg_salesorderheader##JaKkRReE",
+    "sourcePort" : "tTYMZV5L",
+    "target" : "MZd28-GIyn9Ef-pUcyLC_$$IG4b7jxtDLOZNcSKD9_71",
+    "targetPort" : "HNrNVK0E9tuuUoEpzQeTt$$eXHjtiArpQDN1H4m2W_26"
+  }, {
+    "id" : "uYv8-yqiCnb6bMjYRL1d9",
+    "source" : "MZd28-GIyn9Ef-pUcyLC_$$IG4b7jxtDLOZNcSKD9_71",
+    "sourcePort" : "4z9tzFQT07h2Fq_HAF-gb$$LnMIN5ooI64p4388Ryxlo",
+    "target" : "fct_sales##pUbo9asC",
+    "targetPort" : "LDsVXxi2"
   } ],
   "component" : "Model"
 }

@@ -2,7 +2,7 @@
   "id" : "dim_product",
   "metainfo" : {
     "label" : "dim_product",
-    "autoLayout" : true,
+    "autoLayout" : false,
     "staleState" : "none",
     "sourceSuggestions" : {
       "sources" : [ ]
@@ -19,6 +19,8 @@
       "component" : "Seed",
       "metadata" : {
         "label" : "stg_product",
+        "x" : 120,
+        "y" : 120,
         "phase" : 0
       },
       "properties" : {
@@ -145,6 +147,8 @@
       "component" : "Seed",
       "metadata" : {
         "label" : "stg_product_subcategory",
+        "x" : 120,
+        "y" : 320,
         "phase" : 0
       },
       "properties" : {
@@ -191,6 +195,8 @@
       "component" : "Seed",
       "metadata" : {
         "label" : "stg_product_category",
+        "x" : 120,
+        "y" : 520,
         "phase" : 0
       },
       "properties" : {
@@ -232,6 +238,8 @@
       "component" : "TargetModel",
       "metadata" : {
         "label" : "dim_product",
+        "x" : 340,
+        "y" : 320,
         "phase" : 0,
         "macroDependencies" : [ "dbt_utils.generate_surrogate_key" ]
       },
@@ -405,6 +413,50 @@
         } ],
         "outputs" : [ {
           "id" : "xnxpGG2G",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "product_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "productid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "product_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "productnumber",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "color",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "class",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "product_subcategory_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "product_category_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false

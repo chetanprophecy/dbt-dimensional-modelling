@@ -50,14 +50,13 @@ sqlModels:
     description: null
     author: chetan@prophecy.io
     files:
-    - models/marts/dim_customer.sql
+    - models/dim_customer.sql
     - .prophecy/ide/models/dim_customer.json
-    - models/marts/dim_customer.yml
     sqlDependencies:
       models: []
       datasets: []
-    createdAt: '2023-04-23 09:51:07'
-    modifiedAt: '2023-04-23 09:51:07'
+    createdAt: '2023-04-23 10:47:23'
+    modifiedAt: '2023-04-23 10:47:23'
   .prophecy/metadata/sqlmodels/obt_sales:
     name: obt_sales
     description: null
