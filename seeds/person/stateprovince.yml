@@ -6,10 +6,10 @@ seeds:
       schema: person
       column_types: 
         stateprovinceid: integer
-        countryregioncode: varchar
+        countryregioncode: varchar(255)
         modifieddate: timestamp
-        rowguid: varchar 
-        name: varchar
+        rowguid: varchar(255) 
+        name: varchar(255)
         territoryid: integer
         isonlystateprovinceflag: boolean
-        stateprovincecode: varchar
+        stateprovincecode: varchar(255)

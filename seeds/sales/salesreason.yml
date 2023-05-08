@@ -6,6 +6,6 @@ seeds:
       schema: sales
       column_types: 
         salesreasonid: integer
-        name: varchar
-        reasontype: varchar
+        name: varchar(255)
+        reasontype: varchar(255)
         modifieddate: timestamp

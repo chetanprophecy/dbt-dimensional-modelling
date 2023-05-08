@@ -10,14 +10,14 @@ seeds:
         shipmethodid: integer
         billtoaddressid: integer
         modifieddate: timestamp
-        rowguid: varchar
+        rowguid: varchar(255)
         taxamt: numeric
         shiptoaddressid: integer
         onlineorderflag: boolean
         territoryid: integer
         status: smallint
         orderdate: timestamp
-        creditcardapprovalcode: varchar
+        creditcardapprovalcode: varchar(255)
         subtotal: numeric
         creditcardid: integer
         currencyrateid: integer
@@ -28,4 +28,4 @@ seeds:
         customerid: integer
         salespersonid: integer
         shipdate: timestamp
-        accountnumber: varchar
+        accountnumber: varchar(255)

@@ -12,6 +12,6 @@ seeds:
         unitprice: numeric
         specialofferid: integer
         modifieddate: timestamp
-        rowguid: varchar
+        rowguid: varchar(255)
         productid: integer
         unitpricediscount: numeric

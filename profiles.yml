@@ -1,16 +1,11 @@
 adventureworks:
-  target: duckdb
-  outputs:
-    duckdb:
-     type: duckdb
-     path: target/adventureworks.duckdb
-     threads: 12
-    postgres:  
-      type: postgres
-      host: localhost
-      user: postgres
-      password: postgres
-      port: 5432
-      dbname: adventureworks
-      schema: dbo
-      threads: 12
+  target: databricks_job
+   outputs:
+     databricks_job:
+      type: databricks
+      method: jdbc
+      catalog: hive_metastore
+      schema: default
+      host: dbc-147abc45-b6c7.cloud.databricks.com
+      http_path: jdbc:spark://dbc-147abc45-b6c7.cloud.databricks.com:443/default;transportMode=http;ssl=1;AuthMech=3;httpPath=/sql/1.0/warehouses/2a749dbcfe3681e6
+      token: "{{ env_var('dapi01bb7c795d1a7720cea0b87592eb578f') }}"
