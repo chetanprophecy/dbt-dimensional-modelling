@@ -14,6 +14,166 @@
     }
   },
   "processes" : {
+    "Od3JM--8zZy4xuzhRcNcT$$6aN6aUlDSVejM3kwzAhqW" : {
+      "id" : "Od3JM--8zZy4xuzhRcNcT$$6aN6aUlDSVejM3kwzAhqW",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "stg_salesorderheader",
+        "slug" : "stg_salesorderheader",
+        "x" : 60,
+        "y" : 160,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "columnsSelector" : [ "Vy_H0aHYK_jf1LQMjfXRg$$Z68wlbDihwDIILOunhps3##creditcardid" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "distinct(creditcardid)"
+          },
+          "alias" : "creditcardid"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Vy_H0aHYK_jf1LQMjfXRg$$Z68wlbDihwDIILOunhps3",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "salesorderid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "shipmethodid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "billtoaddressid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "modifieddate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "rowguid",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "taxamt",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "shiptoaddressid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "onlineorderflag",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "territoryid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "status",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "orderdate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "creditcardapprovalcode",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "subtotal",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "creditcardid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "currencyrateid",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "revisionnumber",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "freight",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "duedate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "totaldue",
+              "dataType" : {
+                "type" : "Float"
+              }
+            }, {
+              "name" : "customerid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "salespersonid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "shipdate",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "accountnumber",
+              "dataType" : {
+                "type" : "Date"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "4cKijEkO41zQE72p7nknn$$QbhJVdZR5xuUEEqrzchYE",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "creditcardid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
     "stg_creditcard##Cwgkyps8" : {
       "id" : "stg_creditcard##Cwgkyps8",
       "component" : "Seed",
@@ -64,103 +224,6 @@
               "name" : "cardnumber",
               "dataType" : {
                 "type" : "Float"
-              }
-            } ]
-          },
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false
-      }
-    },
-    "dim_credit_card##tl7Wi8XH" : {
-      "id" : "dim_credit_card##tl7Wi8XH",
-      "component" : "TargetModel",
-      "metadata" : {
-        "label" : "dim_credit_card",
-        "x" : 320,
-        "y" : 220,
-        "phase" : 0,
-        "macroDependencies" : [ "dbt_utils.generate_surrogate_key" ]
-      },
-      "properties" : {
-        "customQueryDisabled" : false,
-        "customQuery" : true,
-        "incrementalEditorDisabled" : true,
-        "query" : "SELECT \n  {{ dbt_utils.generate_surrogate_key(['stg_salesorderheader.creditcardid']) }} AS creditcard_key,\n  stg_salesorderheader.creditcardid,\n  stg_creditcard.cardtype\n\nFROM stg_salesorderheader\nLEFT JOIN stg_creditcard\n   ON stg_salesorderheader.creditcardid = stg_creditcard.creditcardid\n   where stg_salesorderheader.creditcardid is not null\n",
-        "incrementalKey" : false,
-        "incremental" : {
-          "expression" : "true"
-        }
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "iqgxUQZd",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "creditcardid",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            } ]
-          },
-          "slug" : "stg_salesorderheader"
-        }, {
-          "id" : "xzrdVdmZ",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "creditcardid",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "cardtype",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "expyear",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "modifieddate",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "expmonth",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "cardnumber",
-              "dataType" : {
-                "type" : "Float"
-              }
-            } ]
-          },
-          "slug" : "stg_creditcard"
-        } ],
-        "outputs" : [ {
-          "id" : "DHdjv8IT",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "creditcard_key",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "creditcardid",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "cardtype",
-              "dataType" : {
-                "type" : "String"
               }
             } ]
           },
@@ -314,43 +377,55 @@
         "isCustomOutputSchema" : false
       }
     },
-    "Od3JM--8zZy4xuzhRcNcT$$6aN6aUlDSVejM3kwzAhqW" : {
-      "id" : "Od3JM--8zZy4xuzhRcNcT$$6aN6aUlDSVejM3kwzAhqW",
-      "component" : "Reformat",
+    "dim_credit_card##tl7Wi8XH" : {
+      "id" : "dim_credit_card##tl7Wi8XH",
+      "component" : "TargetModel",
       "metadata" : {
-        "label" : "stg_salesorderheader",
-        "slug" : "stg_salesorderheader",
-        "x" : 60,
-        "y" : 160,
+        "label" : "dim_credit_card",
+        "x" : 320,
+        "y" : 220,
         "phase" : 0,
-        "macroDependencies" : [ ]
+        "macroDependencies" : [ "dbt_utils.generate_surrogate_key" ]
       },
       "properties" : {
-        "columnsSelector" : [ "Vy_H0aHYK_jf1LQMjfXRg$$Z68wlbDihwDIILOunhps3##creditcardid" ],
-        "expressions" : [ {
-          "expression" : {
-            "expression" : "distinct(creditcardid)"
-          },
-          "alias" : "creditcardid"
-        } ]
+        "customQueryDisabled" : false,
+        "customQuery" : true,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT \n  {{ dbt_utils.generate_surrogate_key(['stg_salesorderheader.creditcardid']) }} AS creditcard_key,\n  stg_salesorderheader.creditcardid,\n  stg_creditcard.cardtype\n\nFROM stg_salesorderheader\nLEFT JOIN stg_creditcard\n   ON stg_salesorderheader.creditcardid = stg_creditcard.creditcardid\n   where stg_salesorderheader.creditcardid is not null\n",
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "Vy_H0aHYK_jf1LQMjfXRg$$Z68wlbDihwDIILOunhps3",
+          "id" : "iqgxUQZd",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
-              "name" : "salesorderid",
+              "name" : "creditcardid",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            } ]
+          },
+          "slug" : "stg_salesorderheader"
+        }, {
+          "id" : "xzrdVdmZ",
+          "schema" : {
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "creditcardid",
               "dataType" : {
                 "type" : "Integer"
               }
             }, {
-              "name" : "shipmethodid",
+              "name" : "cardtype",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "String"
               }
             }, {
-              "name" : "billtoaddressid",
+              "name" : "expyear",
               "dataType" : {
                 "type" : "Integer"
               }
@@ -360,112 +435,37 @@
                 "type" : "Date"
               }
             }, {
-              "name" : "rowguid",
+              "name" : "expmonth",
               "dataType" : {
-                "type" : "String"
+                "type" : "Integer"
               }
             }, {
-              "name" : "taxamt",
+              "name" : "cardnumber",
               "dataType" : {
                 "type" : "Float"
-              }
-            }, {
-              "name" : "shiptoaddressid",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "onlineorderflag",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "territoryid",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "status",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "orderdate",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "creditcardapprovalcode",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "subtotal",
-              "dataType" : {
-                "type" : "Float"
-              }
-            }, {
-              "name" : "creditcardid",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "currencyrateid",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "revisionnumber",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "freight",
-              "dataType" : {
-                "type" : "Float"
-              }
-            }, {
-              "name" : "duedate",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "totaldue",
-              "dataType" : {
-                "type" : "Float"
-              }
-            }, {
-              "name" : "customerid",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "salespersonid",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "shipdate",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "accountnumber",
-              "dataType" : {
-                "type" : "Date"
               }
             } ]
           },
-          "slug" : "in0"
+          "slug" : "stg_creditcard"
         } ],
         "outputs" : [ {
-          "id" : "4cKijEkO41zQE72p7nknn$$QbhJVdZR5xuUEEqrzchYE",
+          "id" : "DHdjv8IT",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
+              "name" : "creditcard_key",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
               "name" : "creditcardid",
               "dataType" : {
                 "type" : "Integer"
+              }
+            }, {
+              "name" : "cardtype",
+              "dataType" : {
+                "type" : "String"
               }
             } ]
           },

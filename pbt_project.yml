@@ -12,7 +12,6 @@ jobs: {}
 functions:
   author: null
   createdAt: '2023-04-23 09:51:07'
-  modifiedAt: '2023-04-23 09:51:07'
   gems: {}
   udfs: {}
   udafs: {}
@@ -21,6 +20,45 @@ subgraphs: {}
 sqlModels:
   .prophecy/metadata/sqlmodels/fct_sales:
     name: fct_sales
+    schema:
+      providerType: Databricks
+      fields:
+      - name: sales_key
+        dataType:
+          type: String
+      - name: product_key
+        dataType:
+          type: String
+      - name: customer_key
+        dataType:
+          type: String
+      - name: creditcard_key
+        dataType:
+          type: String
+      - name: ship_address_key
+        dataType:
+          type: String
+      - name: order_status_key
+        dataType:
+          type: String
+      - name: order_date_key
+        dataType:
+          type: String
+      - name: salesorderid
+        dataType:
+          type: Integer
+      - name: salesorderdetailid
+        dataType:
+          type: Integer
+      - name: unitprice
+        dataType:
+          type: Float
+      - name: orderqty
+        dataType:
+          type: Integer
+      - name: revenue
+        dataType:
+          type: Float
     description: null
     author: chetan@prophecy.io
     files:
@@ -31,9 +69,20 @@ sqlModels:
       models: []
       datasets: []
     createdAt: '2023-04-23 09:51:07'
-    modifiedAt: '2023-04-23 09:51:07'
   .prophecy/metadata/sqlmodels/dim_order_status:
     name: dim_order_status
+    schema:
+      providerType: Databricks
+      fields:
+      - name: order_status_key
+        dataType:
+          type: String
+      - name: order_status
+        dataType:
+          type: Integer
+      - name: order_status_name
+        dataType:
+          type: String
     description: null
     author: chetan@prophecy.io
     files:
@@ -44,9 +93,35 @@ sqlModels:
       models: []
       datasets: []
     createdAt: '2023-04-23 09:51:07'
-    modifiedAt: '2023-04-23 09:51:07'
   .prophecy/metadata/sqlmodels/dim_customer:
     name: dim_customer
+    schema:
+      providerType: Databricks
+      fields:
+      - name: customer_key
+        dataType:
+          type: String
+      - name: customerid
+        dataType:
+          type: Integer
+      - name: personid
+        dataType:
+          type: String
+      - name: storeid
+        dataType:
+          type: Integer
+      - name: businessentityid
+        dataType:
+          type: Integer
+      - name: fullname
+        dataType:
+          type: String
+      - name: storebusinessentityid
+        dataType:
+          type: Integer
+      - name: storename
+        dataType:
+          type: String
     description: null
     author: chetan@prophecy.io
     files:
@@ -56,9 +131,122 @@ sqlModels:
       models: []
       datasets: []
     createdAt: '2023-04-23 10:47:23'
-    modifiedAt: '2023-04-23 10:47:23'
   .prophecy/metadata/sqlmodels/onebigtable_sales:
     name: onebigtable_sales
+    schema:
+      providerType: Databricks
+      fields:
+      - name: productid
+        dataType:
+          type: Integer
+      - name: product_name
+        dataType:
+          type: String
+      - name: productnumber
+        dataType:
+          type: String
+      - name: color
+        dataType:
+          type: String
+      - name: class
+        dataType:
+          type: String
+      - name: product_subcategory_name
+        dataType:
+          type: String
+      - name: product_category_name
+        dataType:
+          type: String
+      - name: customerid
+        dataType:
+          type: Integer
+      - name: personid
+        dataType:
+          type: String
+      - name: storeid
+        dataType:
+          type: Integer
+      - name: businessentityid
+        dataType:
+          type: Integer
+      - name: fullname
+        dataType:
+          type: String
+      - name: storebusinessentityid
+        dataType:
+          type: Integer
+      - name: storename
+        dataType:
+          type: String
+      - name: creditcardid
+        dataType:
+          type: Integer
+      - name: cardtype
+        dataType:
+          type: String
+      - name: addressid
+        dataType:
+          type: Integer
+      - name: city_name
+        dataType:
+          type: String
+      - name: state_name
+        dataType:
+          type: String
+      - name: country_name
+        dataType:
+          type: String
+      - name: order_status
+        dataType:
+          type: Integer
+      - name: order_status_name
+        dataType:
+          type: String
+      - name: date_day
+        dataType:
+          type: Date
+      - name: prior_date_day
+        dataType:
+          type: Date
+      - name: next_date_day
+        dataType:
+          type: Date
+      - name: prior_year_date_day
+        dataType:
+          type: Date
+      - name: prior_year_over_year_date_day
+        dataType:
+          type: Date
+      - name: day_of_week
+        dataType:
+          type: Integer
+      - name: day_of_week_name
+        dataType:
+          type: String
+      - name: day_of_month
+        dataType:
+          type: Integer
+      - name: day_of_year
+        dataType:
+          type: Integer
+      - name: salesorderid
+        dataType:
+          type: Integer
+      - name: salesorderdetailid
+        dataType:
+          type: Integer
+      - name: unitprice
+        dataType:
+          type: Float
+      - name: orderqty
+        dataType:
+          type: Integer
+      - name: revenue
+        dataType:
+          type: Float
+      - name: sales_key
+        dataType:
+          type: String
     description: null
     author: chetan@prophecy.io
     files:
@@ -68,9 +256,26 @@ sqlModels:
       models: []
       datasets: []
     createdAt: '2023-04-24 13:52:40'
-    modifiedAt: '2023-04-24 13:52:40'
   .prophecy/metadata/sqlmodels/dim_address:
     name: dim_address
+    schema:
+      providerType: Databricks
+      fields:
+      - name: address_key
+        dataType:
+          type: String
+      - name: addressid
+        dataType:
+          type: Integer
+      - name: city_name
+        dataType:
+          type: String
+      - name: state_name
+        dataType:
+          type: String
+      - name: country_name
+        dataType:
+          type: String
     description: null
     author: chetan@prophecy.io
     files:
@@ -81,9 +286,35 @@ sqlModels:
       models: []
       datasets: []
     createdAt: '2023-04-23 09:51:07'
-    modifiedAt: '2023-04-23 09:51:07'
   .prophecy/metadata/sqlmodels/dim_product:
     name: dim_product
+    schema:
+      providerType: Databricks
+      fields:
+      - name: product_key
+        dataType:
+          type: String
+      - name: productid
+        dataType:
+          type: Integer
+      - name: product_name
+        dataType:
+          type: String
+      - name: productnumber
+        dataType:
+          type: String
+      - name: color
+        dataType:
+          type: String
+      - name: class
+        dataType:
+          type: String
+      - name: product_subcategory_name
+        dataType:
+          type: String
+      - name: product_category_name
+        dataType:
+          type: String
     description: null
     author: chetan@prophecy.io
     files:
@@ -94,9 +325,41 @@ sqlModels:
       models: []
       datasets: []
     createdAt: '2023-04-23 09:51:07'
-    modifiedAt: '2023-04-23 09:51:07'
   .prophecy/metadata/sqlmodels/dim_date:
     name: dim_date
+    schema:
+      providerType: Databricks
+      fields:
+      - name: date_key
+        dataType:
+          type: String
+      - name: date_day
+        dataType:
+          type: Date
+      - name: prior_date_day
+        dataType:
+          type: Date
+      - name: next_date_day
+        dataType:
+          type: Date
+      - name: prior_year_date_day
+        dataType:
+          type: Date
+      - name: prior_year_over_year_date_day
+        dataType:
+          type: Date
+      - name: day_of_week
+        dataType:
+          type: Integer
+      - name: day_of_week_name
+        dataType:
+          type: String
+      - name: day_of_month
+        dataType:
+          type: Integer
+      - name: day_of_year
+        dataType:
+          type: Integer
     description: null
     author: chetan@prophecy.io
     files:
@@ -107,9 +370,20 @@ sqlModels:
       models: []
       datasets: []
     createdAt: '2023-04-23 09:51:07'
-    modifiedAt: '2023-04-23 09:51:07'
   .prophecy/metadata/sqlmodels/dim_credit_card:
     name: dim_credit_card
+    schema:
+      providerType: Databricks
+      fields:
+      - name: creditcard_key
+        dataType:
+          type: String
+      - name: creditcardid
+        dataType:
+          type: Integer
+      - name: cardtype
+        dataType:
+          type: String
     description: null
     author: chetan@prophecy.io
     files:
@@ -120,7 +394,6 @@ sqlModels:
       models: []
       datasets: []
     createdAt: '2023-04-23 09:51:07'
-    modifiedAt: '2023-04-23 09:51:07'
 sqlMacros:
   .prophecy/metadata/sqlmacros/generate_schema_name:
     name: generate_schema_name
@@ -130,143 +403,532 @@ sqlMacros:
     files:
     - macros/override_default_schema_name.sql
     createdAt: '2023-04-23 09:51:07'
-    modifiedAt: '2023-04-23 09:51:07'
 sqlSeeds:
   .prophecy/metadata/sqlseeds/store:
     name: store
+    schema:
+      providerType: Databricks
+      fields:
+      - name: businessentityid
+        dataType:
+          type: Integer
+      - name: storename
+        dataType:
+          type: String
+      - name: salespersonid
+        dataType:
+          type: Integer
+      - name: modifieddate
+        dataType:
+          type: Date
     description: null
     author: chetan@prophecy.io
     files:
     - seeds/sales/store.csv
     - seeds/sales/store.yml
     createdAt: '2023-04-23 09:51:07'
-    modifiedAt: '2023-04-23 09:51:07'
   .prophecy/metadata/sqlseeds/salesorderdetail:
     name: salesorderdetail
+    schema:
+      providerType: Databricks
+      fields:
+      - name: salesorderid
+        dataType:
+          type: Integer
+      - name: orderqty
+        dataType:
+          type: Integer
+      - name: salesorderdetailid
+        dataType:
+          type: Integer
+      - name: unitprice
+        dataType:
+          type: Float
+      - name: specialofferid
+        dataType:
+          type: Integer
+      - name: modifieddate
+        dataType:
+          type: Date
+      - name: rowguid
+        dataType:
+          type: String
+      - name: productid
+        dataType:
+          type: Integer
+      - name: unitpricediscount
+        dataType:
+          type: Integer
     description: null
     author: chetan@prophecy.io
     files:
     - seeds/sales/salesorderdetail.csv
     - seeds/sales/salesorderdetail.yml
     createdAt: '2023-04-23 09:51:07'
-    modifiedAt: '2023-04-23 09:51:07'
   .prophecy/metadata/sqlseeds/stateprovince:
     name: stateprovince
+    schema:
+      providerType: Databricks
+      fields:
+      - name: stateprovinceid
+        dataType:
+          type: Integer
+      - name: countryregioncode
+        dataType:
+          type: String
+      - name: modifieddate
+        dataType:
+          type: Date
+      - name: rowguid
+        dataType:
+          type: String
+      - name: name
+        dataType:
+          type: String
+      - name: territoryid
+        dataType:
+          type: Integer
+      - name: isonlystateprovinceflag
+        dataType:
+          type: String
+      - name: stateprovincecode
+        dataType:
+          type: String
     description: null
     author: chetan@prophecy.io
     files:
     - seeds/person/stateprovince.csv
     - seeds/person/stateprovince.yml
     createdAt: '2023-04-23 09:51:07'
-    modifiedAt: '2023-04-23 09:51:07'
   .prophecy/metadata/sqlseeds/customer:
     name: customer
+    schema:
+      providerType: Databricks
+      fields:
+      - name: customerid
+        dataType:
+          type: Integer
+      - name: personid
+        dataType:
+          type: String
+      - name: storeid
+        dataType:
+          type: Integer
+      - name: territoryid
+        dataType:
+          type: Integer
     description: null
     author: chetan@prophecy.io
     files:
     - seeds/sales/customer.csv
     - seeds/sales/customer.yml
     createdAt: '2023-04-23 09:51:07'
-    modifiedAt: '2023-04-23 09:51:07'
   .prophecy/metadata/sqlseeds/date:
     name: date
+    schema:
+      providerType: Databricks
+      fields:
+      - name: date_day
+        dataType:
+          type: Date
+      - name: prior_date_day
+        dataType:
+          type: Date
+      - name: next_date_day
+        dataType:
+          type: Date
+      - name: prior_year_date_day
+        dataType:
+          type: Date
+      - name: prior_year_over_year_date_day
+        dataType:
+          type: Date
+      - name: day_of_week
+        dataType:
+          type: Integer
+      - name: day_of_week_name
+        dataType:
+          type: String
+      - name: day_of_month
+        dataType:
+          type: Integer
+      - name: day_of_year
+        dataType:
+          type: Integer
     description: null
     author: chetan@prophecy.io
     files:
     - seeds/date/date.csv
     - seeds/date/date.yml
     createdAt: '2023-04-23 09:51:07'
-    modifiedAt: '2023-04-23 09:51:07'
   .prophecy/metadata/sqlseeds/creditcard:
     name: creditcard
+    schema:
+      providerType: Databricks
+      fields:
+      - name: creditcardid
+        dataType:
+          type: Integer
+      - name: cardtype
+        dataType:
+          type: String
+      - name: expyear
+        dataType:
+          type: Integer
+      - name: modifieddate
+        dataType:
+          type: Date
+      - name: expmonth
+        dataType:
+          type: Integer
+      - name: cardnumber
+        dataType:
+          type: Float
     description: null
     author: chetan@prophecy.io
     files:
     - seeds/sales/creditcard.csv
     - seeds/sales/creditcard.yml
     createdAt: '2023-04-23 09:51:07'
-    modifiedAt: '2023-04-23 09:51:07'
   .prophecy/metadata/sqlseeds/address:
     name: address
+    schema:
+      providerType: Databricks
+      fields:
+      - name: addressid
+        dataType:
+          type: Integer
+      - name: addressline1
+        dataType:
+          type: String
+      - name: addressline2
+        dataType:
+          type: String
+      - name: city
+        dataType:
+          type: String
+      - name: stateprovinceid
+        dataType:
+          type: Integer
+      - name: postalcode
+        dataType:
+          type: String
+      - name: spatiallocation
+        dataType:
+          type: String
+      - name: rowguid
+        dataType:
+          type: String
+      - name: modifieddate
+        dataType:
+          type: Date
     description: null
     author: chetan@prophecy.io
     files:
     - seeds/person/address.csv
     - seeds/person/address.yml
     createdAt: '2023-04-23 09:51:07'
-    modifiedAt: '2023-04-23 09:51:07'
   .prophecy/metadata/sqlseeds/countryregion:
     name: countryregion
+    schema:
+      providerType: Databricks
+      fields:
+      - name: countryregioncode
+        dataType:
+          type: String
+      - name: modifieddate
+        dataType:
+          type: Date
+      - name: name
+        dataType:
+          type: String
     description: null
     author: chetan@prophecy.io
     files:
     - seeds/person/countryregion.csv
     - seeds/person/countryregion.yml
     createdAt: '2023-04-23 09:51:07'
-    modifiedAt: '2023-04-23 09:51:07'
   .prophecy/metadata/sqlseeds/salesorderheader:
     name: salesorderheader
+    schema:
+      providerType: Databricks
+      fields:
+      - name: salesorderid
+        dataType:
+          type: Integer
+      - name: shipmethodid
+        dataType:
+          type: Integer
+      - name: billtoaddressid
+        dataType:
+          type: Integer
+      - name: modifieddate
+        dataType:
+          type: Date
+      - name: rowguid
+        dataType:
+          type: String
+      - name: taxamt
+        dataType:
+          type: Float
+      - name: shiptoaddressid
+        dataType:
+          type: Integer
+      - name: onlineorderflag
+        dataType:
+          type: String
+      - name: territoryid
+        dataType:
+          type: Integer
+      - name: status
+        dataType:
+          type: Integer
+      - name: orderdate
+        dataType:
+          type: Date
+      - name: creditcardapprovalcode
+        dataType:
+          type: String
+      - name: subtotal
+        dataType:
+          type: Float
+      - name: creditcardid
+        dataType:
+          type: Integer
+      - name: currencyrateid
+        dataType:
+          type: String
+      - name: revisionnumber
+        dataType:
+          type: Integer
+      - name: freight
+        dataType:
+          type: Float
+      - name: duedate
+        dataType:
+          type: Date
+      - name: totaldue
+        dataType:
+          type: Float
+      - name: customerid
+        dataType:
+          type: Integer
+      - name: salespersonid
+        dataType:
+          type: Integer
+      - name: shipdate
+        dataType:
+          type: Date
+      - name: accountnumber
+        dataType:
+          type: Date
     description: null
     author: chetan@prophecy.io
     files:
     - seeds/sales/salesorderheader.csv
     - seeds/sales/salesorderheader.yml
     createdAt: '2023-04-23 09:51:07'
-    modifiedAt: '2023-04-23 09:51:07'
   .prophecy/metadata/sqlseeds/product:
     name: product
+    schema:
+      providerType: Databricks
+      fields:
+      - name: productid
+        dataType:
+          type: Integer
+      - name: name
+        dataType:
+          type: String
+      - name: safetystocklevel
+        dataType:
+          type: Integer
+      - name: finishedgoodsflag
+        dataType:
+          type: String
+      - name: class
+        dataType:
+          type: String
+      - name: makeflag
+        dataType:
+          type: String
+      - name: productnumber
+        dataType:
+          type: String
+      - name: reorderpoint
+        dataType:
+          type: Integer
+      - name: modifieddate
+        dataType:
+          type: Date
+      - name: rowguid
+        dataType:
+          type: String
+      - name: productmodelid
+        dataType:
+          type: String
+      - name: weightunitmeasurecode
+        dataType:
+          type: String
+      - name: standardcost
+        dataType:
+          type: Integer
+      - name: productsubcategoryid
+        dataType:
+          type: String
+      - name: listprice
+        dataType:
+          type: Integer
+      - name: daystomanufacture
+        dataType:
+          type: Integer
+      - name: productline
+        dataType:
+          type: String
+      - name: color
+        dataType:
+          type: String
+      - name: sellstartdate
+        dataType:
+          type: Date
+      - name: weight
+        dataType:
+          type: String
     description: null
     author: chetan@prophecy.io
     files:
     - seeds/production/product.csv
     - seeds/production/product.yml
     createdAt: '2023-04-23 09:51:07'
-    modifiedAt: '2023-04-23 09:51:07'
   .prophecy/metadata/sqlseeds/productsubcategory:
     name: productsubcategory
+    schema:
+      providerType: Databricks
+      fields:
+      - name: productsubcategoryid
+        dataType:
+          type: Integer
+      - name: productcategoryid
+        dataType:
+          type: Integer
+      - name: name
+        dataType:
+          type: String
+      - name: modifieddate
+        dataType:
+          type: Date
     description: null
     author: chetan@prophecy.io
     files:
     - seeds/production/productsubcategory.csv
     - seeds/production/productsubcategory.yml
     createdAt: '2023-04-23 09:51:07'
-    modifiedAt: '2023-04-23 09:51:07'
   .prophecy/metadata/sqlseeds/salesreason:
     name: salesreason
+    schema:
+      providerType: Databricks
+      fields:
+      - name: salesreasonid
+        dataType:
+          type: Integer
+      - name: name
+        dataType:
+          type: String
+      - name: reasontype
+        dataType:
+          type: String
+      - name: modifieddate
+        dataType:
+          type: Date
     description: null
     author: chetan@prophecy.io
     files:
     - seeds/sales/salesreason.csv
     - seeds/sales/salesreason.yml
     createdAt: '2023-04-23 09:51:07'
-    modifiedAt: '2023-04-23 09:51:07'
   .prophecy/metadata/sqlseeds/productcategory:
     name: productcategory
+    schema:
+      providerType: Databricks
+      fields:
+      - name: productcategoryid
+        dataType:
+          type: Integer
+      - name: name
+        dataType:
+          type: String
+      - name: modifieddate
+        dataType:
+          type: Date
     description: null
     author: chetan@prophecy.io
     files:
     - seeds/production/productcategory.csv
     - seeds/production/productcategory.yml
     createdAt: '2023-04-23 09:51:07'
-    modifiedAt: '2023-04-23 09:51:07'
   .prophecy/metadata/sqlseeds/salesorderheadersalesreason:
     name: salesorderheadersalesreason
+    schema:
+      providerType: Databricks
+      fields:
+      - name: salesorderid
+        dataType:
+          type: Integer
+      - name: modifieddate
+        dataType:
+          type: Date
+      - name: salesreasonid
+        dataType:
+          type: Integer
     description: null
     author: chetan@prophecy.io
     files:
     - seeds/sales/salesorderheadersalesreason.csv
     - seeds/sales/salesorderheadersalesreason.yml
     createdAt: '2023-04-23 09:51:07'
-    modifiedAt: '2023-04-23 09:51:07'
   .prophecy/metadata/sqlseeds/person:
     name: person
+    schema:
+      providerType: Databricks
+      fields:
+      - name: businessentityid
+        dataType:
+          type: Integer
+      - name: title
+        dataType:
+          type: String
+      - name: firstname
+        dataType:
+          type: String
+      - name: middlename
+        dataType:
+          type: String
+      - name: lastname
+        dataType:
+          type: String
+      - name: persontype
+        dataType:
+          type: String
+      - name: namestyle
+        dataType:
+          type: String
+      - name: suffix
+        dataType:
+          type: String
+      - name: modifieddate
+        dataType:
+          type: Date
+      - name: rowguid
+        dataType:
+          type: String
+      - name: emailpromotion
+        dataType:
+          type: Integer
     description: null
     author: chetan@prophecy.io
     files:
     - seeds/person/person.csv
     - seeds/person/person.yml
     createdAt: '2023-04-23 09:51:07'
-    modifiedAt: '2023-04-23 09:51:07'
 sqlSources: {}
 sqlUnreferencedSources: {}
 sqlPipeline:
@@ -274,7 +936,6 @@ sqlPipeline:
   description: null
   author: chetan@prophecy.io
   createdAt: '2023-04-23 09:51:07'
-  modifiedAt: '2023-04-23 09:51:07'
 dependencies: '[]'
 projectDependencies: {}
 pipelineConfigurations: {}
